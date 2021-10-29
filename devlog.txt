@@ -14,3 +14,7 @@ thomasY -- 2021-10-28 23:06
 
 thomasY -- 2021-10-29 09:04
 - Added design_wiki1 to the repo
+
+austinN -- 2021-10-29 09:20
+- added initial app skeleton for the project
+- added temporary templates to serve as a login feature (will change SOON)
