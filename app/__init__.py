@@ -7,7 +7,6 @@
 #from flask import request           #facilitate form submission
 #from flask import session           #facilitate session
 
-the conventional way:
 from flask import Flask, render_template, request, session
 
 app = Flask(__name__)    #create Flask object
