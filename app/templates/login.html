@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+Team Berd: Austin Ngan (Gerald), Thomas Yu (Perry), Mark Zhu (Bob the Third Jr)
+SoftDev
+K15: Sessions Greetings
+2021-10-19
+     simple demo of HTML forms via Flask
+
+     trioTASK:
+     If any member of team has forms experience, let their know-how osmote.
+     If no one does, seek external assistance.
+     PROTIP: Revisit code from intro if you have it.
+     Peruse this code together and discuss how it should work, in conjunction with the back end apparatus.
+
+ -->
+
+
+ <html>
+
+   <head>
+     <title> LOGIN PAGE </title>
+   </head>
+
+   <body>
+     <h1>
+       Austin Ngan (Gerald), Thomas Yu (Perry), Mark Zhu (Bob the Third Jr), Roshani Shrestha (Pete)
+       <br></br>
+       Welcome, Travelers of the Intertoobz!
+       <br></br>
+       {{warning}}
+     </h1>
+
+
+     <h3>
+       Enter your username and password below to proceed.
+     </h3>
+     <form action="/auth" method = "POST">
+       Username: <input type="text" name="username">
+       <br></br>
+       Password: <input type="password" name="password">
+       <br></br>
+       <input type="submit" name="sub1">
+     </form>
+     <br>
+   </body>
+
+ </html>
+
