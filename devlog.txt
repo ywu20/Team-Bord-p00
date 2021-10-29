@@ -11,3 +11,6 @@ thomasY -- 2021-10-28 23:06
 - Housecleaning (moving things around in the repo)
 - Updated component map to better show what is happening on the backend of the program
 - Added flask sessions to the component map to show when the user is logged in and can edit their blog posts
+
+thomasY -- 2021-10-29 09:04
+- Added design_wiki1 to the repo
