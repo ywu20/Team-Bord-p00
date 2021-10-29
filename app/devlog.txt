@@ -3,3 +3,6 @@ I organized the repo and added design_wiki0.pdf.
 Feedback received for design_wiki0.pdf: 
 - Generally, the diagrams and information were good.
 - The component map we made for this was actually a site map. Component maps should include backend information.
+
+roshaniS -- 2021-10-28 22:30
+I added the description of the website/app and the launch codes to README.md. 
