@@ -1,11 +1,11 @@
 roshaniS -- 2021-10-28 19:39
-I organized the repo and added design_wiki0.pdf.
+- Organized the repo and added design_wiki0.pdf.
 Feedback received for design_wiki0.pdf:
 - Generally, the diagrams and information were good.
 - The component map we made for this was actually a site map. Component maps should include backend information.
 
 roshaniS -- 2021-10-28 22:30
-I added the description of the website/app and the launch codes to README.md.
+- added the description of the website/app and the launch codes to README.md.
 
 thomasY -- 2021-10-28 23:06
 - Housecleaning (moving things around in the repo)
@@ -18,3 +18,8 @@ thomasY -- 2021-10-29 09:04
 austinN -- 2021-10-29 09:20
 - added initial app skeleton for the project
 - added temporary templates to serve as a login feature (will change SOON)
+
+roshaniS -- 2021-10-30 18:08
+- added additional templates (register.html, userblog.html)
+- modified templates to match variables in __init__.py
+- modified __init__.py so that it could create a simple working site with login capabilities
