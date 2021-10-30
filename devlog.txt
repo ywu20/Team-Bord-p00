@@ -23,3 +23,8 @@ roshaniS -- 2021-10-30 18:08
 - added additional templates (register.html, userblog.html)
 - modified templates to match variables in __init__.py
 - modified __init__.py so that it could create a simple working site with login capabilities
+
+roshaniS -- 2021-10-30 18:22
+- added back actual design_wiki0.pdf 
+- fixed because the previous pdf was actually of the first version of our design document (for the web log hosting site)
+- feedback from that design wiki document is in my first devlog entry
