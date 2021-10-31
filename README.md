@@ -25,11 +25,13 @@ Afterwards run the command:
 
 If your machine uses Windows, replace `bin` with `Scripts`
 
+
 Clone the Repository and Change Directory:
 
 `$ git clone https://github.com/thomasyu21/Team-Bord-p00.git`
 
 `$ cd Team-Bord-p00/app`
+
 
 Install Requirements:
 
@@ -37,8 +39,10 @@ With a virtual environment launched, run the command:
 
 `$ pip install -r requirements.txt`
 
+
 Run Python Script:
 
 `$ python3 __init__.py`
+
 
 Open webpage at http://127.0.0.1:5000/
