@@ -25,6 +25,13 @@ roshaniS -- 2021-10-30 18:08
 - modified __init__.py so that it could create a simple working site with login capabilities
 
 roshaniS -- 2021-10-30 18:22
-- added back actual design_wiki0.pdf 
+- added back actual design_wiki0.pdf
 - fixed because the previous pdf was actually of the first version of our design document (for the web log hosting site)
 - feedback from that design wiki document is in my first devlog entry
+
+thomasY -- 2021-10-31 18:11
+- Added correct design_wiki1.pdf
+  - Feedback:
+    - Most the design document lacked the needed clarity to proceed (components, database organization, maps)
+    - Site map was too tiny to read
+- Updated requirements.txt so that user can use the file to install the required packages
