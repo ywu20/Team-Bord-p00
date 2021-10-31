@@ -35,3 +35,6 @@ thomasY -- 2021-10-31 18:11
     - Most the design document lacked the needed clarity to proceed (components, database organization, maps)
     - Site map was too tiny to read
 - Updated requirements.txt so that user can use the file to install the required packages
+
+thomasY -- 2021-10-31 18:54
+- Updated README with more detailed launch codes

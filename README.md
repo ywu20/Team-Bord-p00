@@ -13,9 +13,22 @@ Thomas Yu (Project Manager): Assisting with HTML templates and database work (us
 This website will allow the user to register with a username and password. Then, they can log into their personal blog page. On the personal blog page, the user will have the opportunity to create a new blog, view and edit their past entries, or view other users' blogs.
 
 ## Launch Codes
-How to Clone the Repo:  
-`$ git clone git@github.com:thomasyu21/Team-Bord-p00.git`
+Launch Virtual Environment:
+To create a virtual environment run the command:
+`$ python3 -m venv ~/blog`
+Afterwards run the command:
+`$ . ~/blog/bin/activate`
+If your machine uses Windows, replace `bin` with `Scripts`
 
-How to Run:  
-`$ cd Team-Bord-p00`   
+Clone the Repository and Change Directory:
+`$ git clone https://github.com/thomasyu21/Team-Bord-p00.git`
+`$ cd Team-Bord-p00/app`
+
+Install Requirements:
+With a virtual environment launched, run the command:
+`$ pip install -r requirements.txt`
+
+Run Python Script:
 `$ python3 __init__.py`
+
+Open webpage at http://127.0.0.1:5000/
