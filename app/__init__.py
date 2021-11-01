@@ -8,9 +8,10 @@
 #from flask import session           #facilitate session
 
 from flask import Flask, render_template, request, session
+import os 
 
 app = Flask(__name__)    #create Flask object
-app.secret_key="asdf123" #secret key for flask to work
+app.secret_key=os.urandom(32) #secret key for flask to work
 
 teamBord = "Team Bord: Austin Ngan, Roshani Shrestha, Thomas Yu, Mark Zhu" #TNPG + roster for both landing and response pages
 username = "Username"
@@ -21,12 +22,12 @@ def disp_loginpage():
     '''For the landing page where the user will login with a username. If there is already a session, the repsonse page will be generated'''
     if 'u' in session and session['u'] == username:
         greet = "TEST"
-        return render_template('response.html', heading = teamBord, greeting = greet, username = session['u'], password = password, request = request.method)
+        return render_template('userblog.html', heading = teamBord, greeting = greet, username = session['u'], password = password)
     else:
         return render_template( 'login.html' , heading = teamBord) #Only thing that is added to login page is the heading
 
 
-@app.route("/auth")#	, methods=['GET', 'POST'])
+@app.route("/auth", methods=['GET', 'POST'])
 def authenticate():
     '''The response page that will display a greeting, the username, and the request method used'''
     greet = "" #Greeting to be displayed on the response page
@@ -43,7 +44,7 @@ def authenticate():
     if (tempUser == username and tempPass == password):
         greet += "Hullo humon, Bord appreciates your visit. Enjoy your stay. "
         session['u'] = tempUser
-    return render_template('response.html', heading = teamBord, greeting = greet, username = tempUser, password = tempPass, request = request.method)  #uses response template to create the webpage
+    return render_template('userblog.html', heading = teamBord, greeting = greet, username = tempUser, password = tempPass)  #uses response template to create the webpage
 
 @app.route("/logOut")
 def logOut():
