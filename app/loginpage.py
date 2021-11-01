@@ -24,22 +24,22 @@ def disp_loginpage():
     if (request.method == 'POST'): # checks if the request method is POST
         tempUser = request.form['username']
         tempPass = request.form['password']
-    if (tempUser == username and tempPass == password): # checks if the username and password are both correct
-        session['user'] = tempUser # adds session data
-    else:  # the case that the username and password are not both correct
-        # print("***DIAG: request.form ***") 
-        # print(request.form)
-        # print("***DIAG: tempUser ***") 
-        # print(tempUser)
-        # print("***DIAG: tempPass ***") 
-        # print(tempPass)
-        if (tempUser != username and tempPass != password): # checks if both are incorrect 
-            error = "Error: Username and password are incorrect."
-        elif (tempUser != username): # checks if only username is incorrect
-            error = "Error: Username is incorrect."
-        else: # the last case is that only the password is incorrect
-            error = "Error: Password is incorrect."
-        return render_template( 'login.html', message = error)
+        if (tempUser == username and tempPass == password): # checks if the username and password are both correct
+            session['user'] = tempUser # adds session data
+        else:  # the case that the username and password are not both correct
+            # print("***DIAG: request.form ***") 
+            # print(request.form)
+            # print("***DIAG: tempUser ***") 
+            # print(tempUser)
+            # print("***DIAG: tempPass ***") 
+            # print(tempPass)
+            if (tempUser != username and tempPass != password): # checks if both are incorrect 
+                error = "Error: Username and password are incorrect."
+            elif (tempUser != username): # checks if only username is incorrect
+                error = "Error: Username is incorrect."
+            else: # the last case is that only the password is incorrect
+                error = "Error: Password is incorrect."
+            return render_template( 'login.html', message = error)
 
     if "user" in session: # checks if the user is logged in
         print("***DIAG: session['user'] ***") 
@@ -64,11 +64,11 @@ def authenticate():
         # print(tempUser)
         # print("***DIAG: tempPass ***") 
         # print(tempPass)
-    if (tempUser == username): # checks if the username already exists
-        error = "Error: Username already exists."
-        return render_template('register.html', message = error)
-    else:
-        return render_template('login.html', message = "You have successfully registered a new account.")
+        if (tempUser == username): # checks if the username already exists
+            error = "Error: Username already exists."
+            return render_template('register.html', message = error)
+        else:
+            return render_template('login.html', message = "You have successfully registered a new account.")
 
 @app.route("/logout", methods=['GET', 'POST'])
 def logOut():
