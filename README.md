@@ -19,28 +19,30 @@ To create a virtual environment run the command:
 
 `$ python3 -m venv ~/blog`
 
-Afterwards run the command:
+Activate the Virtual Environment:
 
 `$ . ~/blog/bin/activate`
 
 If your machine uses Windows, replace `bin` with `Scripts`
 
 
-Clone the Repository and Change Directory:
+Clone the Repository:
 
 `$ git clone https://github.com/thomasyu21/Team-Bord-p00.git`
 
-`$ cd Team-Bord-p00/app`
+
+Change Directory and Install Requirements
+
+With a virtual environment launched, run the commands:
+
+`$ cd Team-Bord-p00`
+
+`$ pip3 install -r requirements.txt`
 
 
-Install Requirements:
+Change Directory and Run Python Script:
 
-With a virtual environment launched, run the command:
-
-`$ pip install -r requirements.txt`
-
-
-Run Python Script:
+`$ cd app`
 
 `$ python3 __init__.py`
 
