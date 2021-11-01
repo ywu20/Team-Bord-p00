@@ -43,3 +43,6 @@ thomasY -- 2021-10-31 21:27
 - Fixed issues with launch codes
   - Wasn't in the correct directory when installing requirements
   - Replaced pip with pip3
+
+austinN -- 2021-11-01 09:22
+- added initial skeleton for database creation of users and their login info
