@@ -20,40 +20,19 @@ password = "Password123" # will change later
 @app.route("/", methods=['GET', 'POST'])
 def disp_loginpage():
     '''The response page that will display a greeting, the username, and the request method used'''
-    error = "Something went wrong" #Greeting to be displayed on the response page
-
     if "user" in session: # checks if the user is logged in
-        print("***DIAG: session['user'] ***")
-        print(session['user'])
+        #print("***DIAG: session['user'] ***")
+        #print(session['user'])
         return render_template('userblog.html', heading = teamBord, username = session['user'])
-    if (request.method == 'POST'): # checks if the request method is POST
-        tempUser = request.form['username']
-        tempPass = request.form['password']
-        if (tempUser == username and tempPass == password): # checks if the username and password are both correct
-            session['user'] = tempUser # adds session data
-        else:  # the case that the username and password are not both correct
-            # print("***DIAG: request.form ***")
-            # print(request.form)
-            # print("***DIAG: tempUser ***")
-            # print(tempUser)
-            # print("***DIAG: tempPass ***")
-            # print(tempPass)
-            if (tempUser != username and tempPass != password): # checks if both are incorrect
-                error = "Error: Username and password are incorrect."
-            elif (tempUser != username): # checks if only username is incorrect
-                error = "Error: Username is incorrect."
-            else: # the last case is that only the password is incorrect
-                error = "Error: Password is incorrect."
-            return render_template( 'login.html', message = error)
-    return render_template( 'login.html', message = error)
+    else:
+        return render_template( 'login.html')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     return render_template('register.html')
 
-@app.route("/auth", methods=['GET', 'POST'])
-def authenticate():
-    error = ""
+@app.route("/register_auth", methods=['GET', 'POST'])
+def register_auth():
     if (request.method == 'POST'): # checks if the request method is POST
         tempUser = request.form['username']
         tempPass = request.form['password']
@@ -68,6 +47,30 @@ def authenticate():
             return render_template('register.html', message = error)
         else:
             return render_template('login.html', message = "You have successfully registered a new account.")
+
+@app.route("/auth", methods=['GET', 'POST'])
+def authenticate():
+    error = ""
+    if (request.method == 'POST'): # checks if the request method is POST
+        tempUser = request.form['username']
+        tempPass = request.form['password']
+        if (tempUser == username and tempPass == password): # checks if the username and password are both correct
+            session['user'] = tempUser # adds session data
+            return render_template('userblog.html', heading = teamBord, username = session['user'])
+        else:  # the case that the username and password are not both correct
+            # print("***DIAG: request.form ***")
+            # print(request.form)
+            # print("***DIAG: tempUser ***")
+            # print(tempUser)
+            # print("***DIAG: tempPass ***")
+            # print(tempPass)
+            if (tempUser != username and tempPass != password): # checks if both are incorrect
+                error = "Error: Username and password are incorrect."
+            elif (tempUser != username): # checks if only username is incorrect
+                error = "Error: Username is incorrect."
+            else: # the last case is that only the password is incorrect
+                error = "Error: Password is incorrect."
+    return render_template( 'login.html', message = error)
 
 @app.route("/logout", methods=['GET', 'POST'])
 def logOut():
