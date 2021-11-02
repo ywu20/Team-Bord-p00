@@ -14,8 +14,11 @@ app = Flask(__name__)    #create Flask object
 app.secret_key=os.urandom(32) #secret key for flask to work
 
 teamBord = "Team Bord: Austin Ngan, Roshani Shrestha, Thomas Yu, Mark Zhu" #TNPG + roster for both landing and response pages
-username = "Username" # will change later 
-password = "Password123" # will change later
+# username = "Username" # will change later 
+# password = "Password123" # will change later
+accounts = {
+    "Username": "Password123"
+}
 
 @app.route("/", methods=['GET', 'POST'])
 def disp_loginpage():
@@ -24,7 +27,7 @@ def disp_loginpage():
     if (request.method == 'POST'): # checks if the request method is POST
         tempUser = request.form['username']
         tempPass = request.form['password']
-        if (tempUser == username and tempPass == password): # checks if the username and password are both correct
+        if (tempUser in accounts.keys() and tempPass == accounts[tempUser]): # checks if the username and password are both correct
             session['user'] = tempUser # adds session data
         else:  # the case that the username and password are not both correct
             # print("***DIAG: request.form ***") 
@@ -33,9 +36,7 @@ def disp_loginpage():
             # print(tempUser)
             # print("***DIAG: tempPass ***") 
             # print(tempPass)
-            if (tempUser != username and tempPass != password): # checks if both are incorrect 
-                error = "Error: Username and password are incorrect."
-            elif (tempUser != username): # checks if only username is incorrect
+            if (tempUser not in accounts.keys()): # checks if only username is incorrect
                 error = "Error: Username is incorrect."
             else: # the last case is that only the password is incorrect
                 error = "Error: Password is incorrect."
@@ -64,10 +65,11 @@ def authenticate():
         # print(tempUser)
         # print("***DIAG: tempPass ***") 
         # print(tempPass)
-        if (tempUser == username): # checks if the username already exists
+        if (tempUser in accounts.keys()): # checks if the username already exists
             error = "Error: Username already exists."
             return render_template('register.html', message = error)
         else:
+            accounts[tempUser] = tempPass
             return render_template('login.html', message = "You have successfully registered a new account.")
 
 @app.route("/logout", methods=['GET', 'POST'])
