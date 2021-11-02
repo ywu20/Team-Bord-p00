@@ -76,3 +76,8 @@ roshaniS -- 2021-11-02 16:32
 
 thomasY -- 2021-11-02 17:02
 - Made it so that duplicate usernames can't be added to the logins table
+
+austinN -- 2021-11-02 17:08
+- Added text box in the editBlog file (will feed information to the blog database later on)
+- Added createBlog method in loginpage.py so that editing can at least have a start
+- Added Create Post button in userblog.html
