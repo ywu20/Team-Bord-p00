@@ -62,3 +62,8 @@ roshaniS -- 2021-11-01 19:07
   - Moved the sections of code after tempUser and tempPass were assigned back under the if statement checking if request.method == 'POST' 
   - In the disp_loginpage() function: all the code below the variable assignments mentioned above up until "if "user" in session"
   - In the authenticate() function: all the code below the variable assignments mentioned above up until the end of the function
+
+roshaniS -- 2021-11-02 09:31
+- Added a dictionary for all the usernames and passwords, including new ones from registration
+- Used this to check if the login and register capabilities worked
+- There is still the error with the user staying on the /auth route and not being able to log in after registering successfully. If the user goes back to the root,   however, they are able to log in successfully.
