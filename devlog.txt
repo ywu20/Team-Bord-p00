@@ -74,6 +74,11 @@ roshaniS -- 2021-11-02 09:31
 roshaniS -- 2021-11-02 16:32
 - Emptied __init__.py
 
+markZ -- 2021-11-02 16:45
+-Hardcoded a blog post page template
+-Tweaked the loginpage.py so that we can have a button to get to the blog post page and another button to get back to the main blog page
+-Started work on a template for editing blog posts
+
 thomasY -- 2021-11-02 17:02
 - Made it so that duplicate usernames can't be added to the logins table
 
