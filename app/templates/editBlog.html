@@ -2,7 +2,7 @@
 <!--
 Team Bord: Austin Ngan (Gerald), Thomas Yu (Perry), Mark Zhu (Bob the Third Jr), Roshani Shrestha (Pete)
 SoftDev
-P00: Edit/Create Blog Page
+P00: User's Personal Blog Page
 2021-10-30
 -->
 
@@ -10,11 +10,29 @@ P00: Edit/Create Blog Page
  <html>
 
    <head>
-     <title> Edit/Create Blog Page </title>
+     <title> EDITING PAGE </title>
    </head>
 
    <body>
-     
+     <h1>
+       {{heading}}
+       <br>
+       Welcome, Travelers of the Intertoobz!
+       <br>
+     </h1>
+
+     <br>
+
+     <form>
+      <textarea name="paragraph_text" cols="50" rows="10" value="Hello"></textarea>
+     <form/>
+
+     <form action="finishPost" method="post">
+        <button type="submit" name="sub1">Finish Post</button>
+     </form>
+
+     <br>
+
    </body>
 
  </html>
