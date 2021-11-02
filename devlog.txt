@@ -67,3 +67,6 @@ roshaniS -- 2021-11-02 09:31
 - Added a dictionary for all the usernames and passwords, including new ones from registration
 - Used this to check if the login and register capabilities worked
 - There is still the error with the user staying on the /auth route and not being able to log in after registering successfully. If the user goes back to the root,   however, they are able to log in successfully.
+
+roshaniS -- 2021-11-02 16:32
+- Emptied __init__.py 
