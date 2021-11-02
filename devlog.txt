@@ -51,25 +51,28 @@ roshaniS -- 2021-11-01 19:03
 - Added loginpage.py to display the login and register pages
 - Moved the code from __init__.py to loginpage.py but kept the original code in __init__.py (will change this soon)
 - Modified the code so that logging in would allow the user to stay at the root
-- Removed the condition for "GET" 
-- Added the register button and the functions associated with it (did not include the username/password checks using the database yet; only used hardcoded           
+- Removed the condition for "GET"
+- Added the register button and the functions associated with it (did not include the username/password checks using the database yet; only used hardcoded
   username/password, but will change soon)
 - Fixed the logout function so that it redirects the user to the root and not just renders the login.html template
-- There is still an error with the site after the user registers successfully; since the user is still on the /auth route, the user can only keep registering on the 
+- There is still an error with the site after the user registers successfully; since the user is still on the /auth route, the user can only keep registering on the
   login page that is rendered after registering the first time. The user cannot login normally.
 
 roshaniS -- 2021-11-01 19:07
 - Fixed the errors that were present in loginpage.py ("UnboundLocalError: local variable 'tempUser' referenced before assignment")
   - These errors were present in the disp_loginpage() and authenticate() functions
-  - Moved the sections of code after tempUser and tempPass were assigned back under the if statement checking if request.method == 'POST' 
+  - Moved the sections of code after tempUser and tempPass were assigned back under the if statement checking if request.method == 'POST'
   - In the disp_loginpage() function: all the code below the variable assignments mentioned above up until "if "user" in session"
   - In the authenticate() function: all the code below the variable assignments mentioned above up until the end of the function
 
 roshaniS -- 2021-11-02 09:31
 - Added a dictionary for all the usernames and passwords, including new ones from registration
 - Used this to check if the login and register capabilities worked
-- There is still the error with the user staying on the /auth route and not being able to log in after registering successfully. If the user goes back to the root, 
+- There is still the error with the user staying on the /auth route and not being able to log in after registering successfully. If the user goes back to the root,
   however, they are able to log in successfully.
 
 roshaniS -- 2021-11-02 16:32
-- Emptied __init__.py 
+- Emptied __init__.py
+
+thomasY -- 2021-11-02 17:02
+- Made it so that duplicate usernames can't be added to the logins table
