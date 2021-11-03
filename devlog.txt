@@ -91,3 +91,7 @@ thomasY -- 2021--11-02 17:21
 - Moved the check on the username and password to the authenticate function
 - Created a new register_auth path to check the username and password when a user is registering
 - Updated login.html and register.html with new actions in the forms
+
+austinN -- 2021-11-03 09:03
+- Touched up 'Finish Post' button
+- Added 'Cancel Post' button
