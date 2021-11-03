@@ -7,7 +7,7 @@
 #from flask import request           #facilitate form submission
 #from flask import session           #facilitate session
 
-from flask import Flask, render_template, request, session, redirect #, url_for
+from flask import Flask, render_template, request, session, redirect, url_for
 import os
 
 app = Flask(__name__)    #create Flask object
@@ -25,7 +25,7 @@ def disp_loginpage():
         #print(session['user'])
         return render_template('userblog.html', heading = teamBord, username = session['user'])
     else:
-        return render_template( 'login.html')
+        return render_template( 'login.html', message = request.args.get('message'))
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -46,7 +46,7 @@ def register_auth():
             error = "Error: Username already exists."
             return render_template('register.html', message = error)
         else:
-            return render_template('login.html', message = "You have successfully registered a new account.")
+            return redirect(url_for('disp_loginpage', message = "You have successfully registered a new account."))
 
 @app.route("/auth", methods=['GET', 'POST'])
 def authenticate():
