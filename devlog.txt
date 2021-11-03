@@ -95,3 +95,7 @@ thomasY -- 2021--11-02 17:21
 austinN -- 2021-11-03 09:03
 - Touched up 'Finish Post' button
 - Added 'Cancel Post' button
+
+roshaniS -- 2021-11-03 09:06
+- Fixed the issues with login after successful registration using redirect and url_for
+- The user can now log in to the site after registering successfully (only with the hardcoded username and password, not the new username and password)
