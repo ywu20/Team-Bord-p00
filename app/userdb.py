@@ -10,9 +10,16 @@ command = '''CREATE TABLE IF NOT EXISTS logins(
     password TEXT NOT NULL)'''
 c.execute(command)
 
+command2 = '''CREATE TABLE IF NOT EXISTS blogs(
+    username TEXT NOT NULL PRIMARY KEY UNIQUE,
+    blogKey TEXT NOT NULL)'''
+
 def addUser(username, password):
     c.execute("INSERT INTO logins VALUES(?, ?)", (username, password))
 
+
+def addBlog(username, blogKey):
+	c.execute("INSERT INTO blogs VALUES(?, ?)", (username, blogKey)
 
 #addUser("hello", "123123a")
 
