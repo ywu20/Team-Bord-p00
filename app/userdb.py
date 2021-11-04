@@ -20,7 +20,7 @@ def addUser(username, password):
 
 
 def addBlog(username, blogKey, text):
-	c.execute("INSERT INTO blogs VALUES(?, ?)", (username, blogKey)
+        c.execute("INSERT INTO blogs VALUES(?, ?)", (username, blogKey)
 
 #addUser("hello", "123123a")
 
