@@ -6,6 +6,16 @@ db = sqlite3.connect(DB_FILE)
 c = db.cursor()
 
 command = '''CREATE TABLE IF NOT EXISTS logins(
-    username TEXT NOT NULL PRIMARY KEY UNIQUE, 
+    username TEXT NOT NULL PRIMARY KEY UNIQUE,
     password TEXT NOT NULL)'''
 c.execute(command)
+
+def addUser(username, password):
+    c.execute("INSERT INTO logins VALUES(?, ?)", (username, password))
+
+
+#addUser("hello", "123123a")
+
+db.commit()
+db.close()
+
