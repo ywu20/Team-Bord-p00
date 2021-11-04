@@ -99,3 +99,7 @@ austinN -- 2021-11-03 09:03
 roshaniS -- 2021-11-03 09:06
 - Fixed the issues with login after successful registration using redirect and url_for
 - The user can now log in to the site after registering successfully (only with the hardcoded username and password, not the new username and password)
+
+roshaniS -- 2021-11-03 09:06
+- Replaced redirect and url_for with render_template to make it simpler
+- Previously did not work correctly, which is why redirect and url_for were used, but after testing again, render_template worked
