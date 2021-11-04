@@ -7,7 +7,7 @@
 #from flask import request           #facilitate form submission
 #from flask import session           #facilitate session
 
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session
 import os
 
 app = Flask(__name__)    #create Flask object
@@ -15,6 +15,7 @@ app.secret_key=os.urandom(32) #secret key for flask to work
 
 teamBord = "Team Bord: Austin Ngan, Roshani Shrestha, Thomas Yu, Mark Zhu" #TNPG + roster for both landing and response pages
 username = "Username" # will change later
+
 password = "Password123" # will change later
 
 @app.route("/", methods=['GET', 'POST'])
@@ -46,7 +47,7 @@ def register_auth():
             error = "Error: Username already exists."
             return render_template('register.html', message = error)
         else:
-            return redirect(url_for('disp_loginpage', message = "You have successfully registered a new account."))
+            return render_template('login.html', message = "You have successfully registered an account.")
 
 @app.route("/auth", methods=['GET', 'POST'])
 def authenticate():
@@ -76,7 +77,7 @@ def authenticate():
 def logOut():
     '''For when the user logs out of the session'''
     session.pop('user',None)
-    return redirect('/')
+    return render_template('login.html', message = 'You have successfully logged out.')
 
 # temporary
 @app.route("/blog1", methods=['GET', 'POST'])
