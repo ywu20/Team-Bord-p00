@@ -31,7 +31,10 @@ def addBlog(username, blogKey, text):
     db.commit()
     db.close()
 
-
+#def findUsername(uName):
+#    db = sqlite3.connect(DB_FILE)
+#    c = db.cursor()
+#    if ((c.execute("SELECT * FROM logins WHERE username =" + uName))) 
 # addUser("hello", "123123a")
 
 
