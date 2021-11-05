@@ -111,3 +111,6 @@ roshaniS -- 2021-11-04 09:06
 austinN - 2021-11-04 09:16
 - Added function in userdb.py that adds login info to database
 - Added addBlog function (not fully working) that will give a blog a random key and add text corresponding to the blog
+
+austinN - 2021-11-05 09:15
+- loginpage.py now imports userdb.py, register is now fully functioning and adds login info to a database
