@@ -8,6 +8,7 @@
 #from flask import session           #facilitate session
 
 from flask import Flask, render_template, request, session
+import userdb   #enable control of an sqlite database
 import os
 
 app = Flask(__name__)    #create Flask object
@@ -17,6 +18,8 @@ teamBord = "Team Bord: Austin Ngan, Roshani Shrestha, Thomas Yu, Mark Zhu" #TNPG
 username = "Username" # will change later
 
 password = "Password123" # will change later
+
+# ================================================================ #
 
 @app.route("/", methods=['GET', 'POST'])
 def disp_loginpage():
@@ -47,6 +50,7 @@ def register_auth():
             error = "Error: Username already exists."
             return render_template('register.html', message = error)
         else:
+            userdb.addUser(tempUser,tempPass)
             return render_template('login.html', message = "You have successfully registered an account.")
 
 @app.route("/auth", methods=['GET', 'POST'])
@@ -58,13 +62,7 @@ def authenticate():
         if (tempUser == username and tempPass == password): # checks if the username and password are both correct
             session['user'] = tempUser # adds session data
             return render_template('userblog.html', heading = teamBord, username = session['user'])
-        else:  # the case that the username and password are not both correct
-            # print("***DIAG: request.form ***")
-            # print(request.form)
-            # print("***DIAG: tempUser ***")
-            # print(tempUser)
-            # print("***DIAG: tempPass ***")
-            # print(tempPass)
+        else:
             if (tempUser != username and tempPass != password): # checks if both are incorrect
                 error = "Error: Username and password are incorrect."
             elif (tempUser != username): # checks if only username is incorrect
@@ -88,6 +86,8 @@ def blogPage():
 def createPost():
     '''For when the user wants to make a new post'''
     return render_template('editBlog.html')
+
+# ================================================================================ #
 
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
