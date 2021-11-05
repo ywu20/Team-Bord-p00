@@ -46,7 +46,7 @@ def register_auth():
         # print(tempUser)
         # print("***DIAG: tempPass ***")
         # print(tempPass)
-        if (tempUser == username): # checks if the username already exists
+        if (userdb.checkUser(tempUser)): # checks if the username already exists
             error = "Error: Username already exists."
             return render_template('register.html', message = error)
         else:
@@ -59,14 +59,12 @@ def authenticate():
     if (request.method == 'POST'): # checks if the request method is POST
         tempUser = request.form['username']
         tempPass = request.form['password']
-        if (tempUser == username and tempPass == password): # checks if the username and password are both correct
+        if (userdb.checkUserPass(tempUser, tempPass)): # checks if the username and password are both correct
             session['user'] = tempUser # adds session data
             return render_template('userblog.html', heading = teamBord, username = session['user'])
         else:
-            if (tempUser != username and tempPass != password): # checks if both are incorrect
-                error = "Error: Username and password are incorrect."
-            elif (tempUser != username): # checks if only username is incorrect
-                error = "Error: Username is incorrect."
+            if (not userdb.checkUser(tempUser)): # checks if the username is incorrect
+                error = "Error: Username does not exist."
             else: # the last case is that only the password is incorrect
                 error = "Error: Password is incorrect."
     return render_template( 'login.html', message = error)
@@ -74,7 +72,7 @@ def authenticate():
 @app.route("/logout", methods=['GET', 'POST'])
 def logOut():
     '''For when the user logs out of the session'''
-    session.pop('user',None)
+    session.pop('user', None)
     return render_template('login.html', message = 'You have successfully logged out.')
 
 # temporary
