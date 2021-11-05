@@ -1,3 +1,7 @@
+Team Bord: Austin Ngan (Gerald), Thomas Yu (Perry), Mark Zhu (Bob the Third Jr), Roshani Shrestha (Pete)
+SoftDev
+P00 -- Web Blog Hosting Site
+
 roshaniS -- 2021-10-28 19:39
 - Organized the repo and added design_wiki0.pdf.
 Feedback received for design_wiki0.pdf:
