@@ -116,6 +116,7 @@ austinN - 2021-11-05 09:15
 - loginpage.py now imports userdb.py, register is now fully functioning and adds login info to a database
 
 roshaniS - 2021-11-05 19:19
+- Added a function to make a dictionary out of the logins table 
 - Added a function in userdb.py to check if the username exists 
 - Added a function in userdb.py to check if the username and password are both correct
 - Used functions from userdb.py in the register_auth and authenticate functions of loginpage.py so that the user can login and register properly
