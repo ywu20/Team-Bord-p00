@@ -15,9 +15,9 @@ app = Flask(__name__)    #create Flask object
 app.secret_key=os.urandom(32) #secret key for flask to work
 
 teamBord = "Team Bord: Austin Ngan, Roshani Shrestha, Thomas Yu, Mark Zhu" #TNPG + roster for both landing and response pages
-username = "Username" # will change later
+# username = "Username" # will change later
 
-password = "Password123" # will change later
+# password = "Password123" # will change later
 
 # ================================================================ #
 
@@ -84,6 +84,16 @@ def blogPage():
 def createPost():
     '''For when the user wants to make a new post'''
     return render_template('editBlog.html')
+
+@app.route("/finishPost", methods=['GET', 'POST'])
+def finishPost():
+    '''For when the user wants to finish their post'''
+    title = request.form['title']
+    text = request.form['paragraph_text']
+    blogKey=os.urandom(32)
+    username=session['user']
+    userdb.addBlog(username, blogKey, title, text)
+    return render_template('userblog.html')
 
 # ================================================================================ #
 
