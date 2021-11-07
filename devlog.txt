@@ -120,3 +120,8 @@ roshaniS - 2021-11-05 19:19
 - Added a function in userdb.py to check if the username exists 
 - Added a function in userdb.py to check if the username and password are both correct
 - Used functions from userdb.py in the register_auth and authenticate functions of loginpage.py so that the user can login and register properly
+
+austinN - 2021-11-07 14:09
+- Added finishPost method in loginPage.py, which takes values from the editBlog form and adds them into the blog table
+- editBlog.html now uses the correct actions and will submit the correct data
+- The blogs table now has a 4th column 'title' to take the title of the blog entry created
