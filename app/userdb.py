@@ -15,6 +15,7 @@ c.execute(command)
 command2 = '''CREATE TABLE IF NOT EXISTS blogs(
     username TEXT NOT NULL,
     blogKey TEXT NOT NULL,
+    blogTitle TEXT NOT NULL,
     blogText TEXT NOT NULL)'''
 c.execute(command2)
 
@@ -29,10 +30,10 @@ def addUser(username, password):
     db.close()
 
 
-def addBlog(username, blogKey, text):
+def addBlog(username, blogKey, title, text):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("INSERT INTO blogs VALUES(?, ?)", (username, blogKey))
+    c.execute("INSERT INTO blogs VALUES(?, ?, ?, ?)", (username, blogKey, title, text))
     db.commit()
     db.close()
 
@@ -62,7 +63,5 @@ def checkUserPass(username, password):
 #def findUsername(uName):
 #    db = sqlite3.connect(DB_FILE)
 #    c = db.cursor()
-#    if ((c.execute("SELECT * FROM logins WHERE username =" + uName))) 
+#    if ((c.execute("SELECT * FROM logins WHERE username =" + uName)))
 # addUser("hello", "123123a")
-
-
