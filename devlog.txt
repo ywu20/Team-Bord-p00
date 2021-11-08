@@ -129,3 +129,8 @@ austinN - 2021-11-07 14:09
 austinN - 2021-11-08 09:22
 - finishPost now displays the user's username in userblog.html after the new post has been created
 - created findBlogs function in userdb.py, which takes the titles and text of the blogs corresponding to a username
+
+roshaniS - 2021-11-08 09:24
+- removed request.args so that the login page doesn't display "None"
+- added conditions for if the username and password on register page are empty
+- added button on register page to go back to login page
