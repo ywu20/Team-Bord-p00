@@ -91,9 +91,9 @@ def finishPost():
     title = request.form['title']
     text = request.form['paragraph_text']
     blogKey=os.urandom(32)
-    username=session['user']
-    userdb.addBlog(username, blogKey, title, text)
-    return render_template('userblog.html')
+    userU=session['user']
+    userdb.addBlog(userU, blogKey, title, text)
+    return render_template('userblog.html', heading = teamBord, username = userU)
 
 # ================================================================================ #
 
