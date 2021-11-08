@@ -60,8 +60,17 @@ def checkUserPass(username, password):
     loginsinfo = makeLoginsDict()
     return (username in loginsinfo.keys()) and (loginsinfo[username] == password)
 
-#def findUsername(uName):
-#    db = sqlite3.connect(DB_FILE)
-#    c = db.cursor()
-#    if ((c.execute("SELECT * FROM logins WHERE username =" + uName)))
-# addUser("hello", "123123a")
+def findBlogs(username):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT blogTitle FROM blogs WHERE username = " + username)
+    titles=c.fetchall()
+    c.execute("SELECT blogText FROM blogs WHERE username = " + username)
+    text=c.fetchall()
+    dictionary={}
+    for i in titles:
+    	dictionary[i[0]]=titles[i]
+    	dictionary[i[1]]=text[i]
+    db.commit()
+    db.close()
+
