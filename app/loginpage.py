@@ -29,7 +29,7 @@ def disp_loginpage():
         #print(session['user'])
         return render_template('userblog.html', heading = teamBord, username = session['user'])
     else:
-        return render_template( 'login.html', message = request.args.get('message'))
+        return render_template( 'login.html')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -48,6 +48,15 @@ def register_auth():
         # print(tempPass)
         if (userdb.checkUser(tempUser)): # checks if the username already exists
             error = "Error: Username already exists."
+            return render_template('register.html', message = error)
+        elif (tempUser == "" and tempPass == ""):
+            error = "Error: No username or password entered."
+            return render_template('register.html', message = error)
+        elif (tempUser == ""):
+            error = "Error: No username entered."
+            return render_template('register.html', message = error)
+        elif (tempPass == ""):
+            error = "Error: No password entered."
             return render_template('register.html', message = error)
         else:
             userdb.addUser(tempUser,tempPass)
@@ -69,6 +78,11 @@ def authenticate():
                 error = "Error: Password is incorrect."
     return render_template( 'login.html', message = error)
 
+@app.route("/back_login", methods=['GET', 'POST'])
+def backtologin():
+    '''On the register page for when the user wants to go back to the login page instead'''
+    return render_template('login.html')
+    
 @app.route("/logout", methods=['GET', 'POST'])
 def logOut():
     '''For when the user logs out of the session'''
