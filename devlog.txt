@@ -134,3 +134,8 @@ roshaniS - 2021-11-08 09:24
 - removed the message parameter when rendering login.html in the disp_loginpage function so that the login page doesn't display "None"
 - added conditions (with appropriate error messages) in the register_auth function for if the user inputs no username and/or password on the register page
 - added button on the register page (along with the appropriate function) for the user to go back to the login page
+
+roshaniS - 2021-11-08 20:21
+- removed commented out hardcoded username and password, as they aren't necessary anymore
+- removed diagnostic print statements, were there for testing only
+- added comments for readability; allows us to understand it later on
