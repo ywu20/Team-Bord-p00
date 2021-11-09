@@ -15,55 +15,58 @@ app = Flask(__name__)    #create Flask object
 app.secret_key=os.urandom(32) #secret key for flask to work
 
 teamBord = "Team Bord: Austin Ngan, Roshani Shrestha, Thomas Yu, Mark Zhu" #TNPG + roster for both landing and response pages
-# username = "Username" # will change later
-
-# password = "Password123" # will change later
 
 # ================================================================ #
 
 @app.route("/", methods=['GET', 'POST'])
 def disp_loginpage():
-    '''The response page that will display a greeting, the username, and the request method used'''
+    '''
+    Displays the login page or the user's personal blog page if they are logged in. 
+    '''
     if "user" in session: # checks if the user is logged in
-        #print("***DIAG: session['user'] ***")
-        #print(session['user'])
-        return render_template('userblog.html', heading = teamBord, username = session['user'])
+        return render_template('userblog.html', heading = teamBord, username = session['user']) 
     else:
         return render_template( 'login.html')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    '''
+    Takes the user to the register page after pressing the button on the login page.
+    '''
     return render_template('register.html')
 
 @app.route("/register_auth", methods=['GET', 'POST'])
 def register_auth():
+    '''
+    Checks if the new username and password provided by the user on the register page are valid.
+    Uses the database users.db to check if the username exists already.
+    Also checks if the user didn't input any username and/or password.
+    '''
     if (request.method == 'POST'): # checks if the request method is POST
         tempUser = request.form['username']
         tempPass = request.form['password']
-        # print("***DIAG: request.form ***")
-        # print(request.form)
-        # print("***DIAG: tempUser ***")
-        # print(tempUser)
-        # print("***DIAG: tempPass ***")
-        # print(tempPass)
         if (userdb.checkUser(tempUser)): # checks if the username already exists
             error = "Error: Username already exists."
             return render_template('register.html', message = error)
-        elif (tempUser == "" and tempPass == ""):
+        elif (tempUser == "" and tempPass == ""): # checks if the both the username and password are empty
             error = "Error: No username or password entered."
             return render_template('register.html', message = error)
-        elif (tempUser == ""):
+        elif (tempUser == ""): # checks if only the username is empty
             error = "Error: No username entered."
             return render_template('register.html', message = error)
-        elif (tempPass == ""):
+        elif (tempPass == ""): # checks if only the password is empty
             error = "Error: No password entered."
             return render_template('register.html', message = error)
-        else:
+        else: # last case is that both the username and password are good
             userdb.addUser(tempUser,tempPass)
             return render_template('login.html', message = "You have successfully registered an account.")
 
 @app.route("/auth", methods=['GET', 'POST'])
 def authenticate():
+    '''
+    Checks if the username and password provided by the user in the login page are correct.
+    Uses the database users.db.
+    '''
     error = ""
     if (request.method == 'POST'): # checks if the request method is POST
         tempUser = request.form['username']
@@ -80,14 +83,18 @@ def authenticate():
 
 @app.route("/back_login", methods=['GET', 'POST'])
 def backtologin():
-    '''On the register page for when the user wants to go back to the login page instead'''
+    '''
+    Takes the user back to the login page after they press the button on the register page.
+    '''
     return render_template('login.html')
-    
+
 @app.route("/logout", methods=['GET', 'POST'])
 def logOut():
-    '''For when the user logs out of the session'''
-    session.pop('user', None)
-    return render_template('login.html', message = 'You have successfully logged out.')
+    '''
+    Logs the user out of the session.
+    '''
+    session.pop('user', None) # removes the session
+    return render_template('login.html', message = 'You have successfully logged out.') # takes the user back to the login page
 
 # temporary
 @app.route("/blog1", methods=['GET', 'POST'])
@@ -101,7 +108,9 @@ def createPost():
 
 @app.route("/finishPost", methods=['GET', 'POST'])
 def finishPost():
-    '''For when the user wants to finish their post'''
+    '''
+    For when the user wants to finish their post
+    '''
     title = request.form['title']
     text = request.form['paragraph_text']
     blogKey=os.urandom(32)
