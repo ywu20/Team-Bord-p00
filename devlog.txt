@@ -139,3 +139,8 @@ roshaniS - 2021-11-08 20:21
 - removed commented out hardcoded username and password, as they aren't necessary anymore
 - removed diagnostic print statements, were there for testing only
 - added and changed some comments for readability; allows us to understand the code later on
+
+roshaniS - 2021-11-08 23:31
+- changed one comment
+- moved code from loginpage.py to __init__.py 
+- deleted loginpage.py
