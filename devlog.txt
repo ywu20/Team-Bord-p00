@@ -108,39 +108,39 @@ roshaniS -- 2021-11-04 09:06
 - Replaced redirect and url_for with render_template to make it simpler
 - Previously did not work correctly, which is why redirect and url_for were used, but after testing again, render_template worked
 
-austinN - 2021-11-04 09:16
+austinN -- 2021-11-04 09:16
 - Added function in userdb.py that adds login info to database
 - Added addBlog function (not fully working) that will give a blog a random key and add text corresponding to the blog
 
-austinN - 2021-11-05 09:15
+austinN -- 2021-11-05 09:15
 - loginpage.py now imports userdb.py, register is now fully functioning and adds login info to a database
 
-roshaniS - 2021-11-05 19:19
+roshaniS -- 2021-11-05 19:19
 - Added a function to make a dictionary out of the logins table 
 - Added a function in userdb.py to check if the username exists 
 - Added a function in userdb.py to check if the username and password are both correct
 - Used functions from userdb.py in the register_auth and authenticate functions of loginpage.py so that the user can login and register properly
 
-austinN - 2021-11-07 14:09
+austinN -- 2021-11-07 14:09
 - Added finishPost method in loginPage.py, which takes values from the editBlog form and adds them into the blog table
 - editBlog.html now uses the correct actions and will submit the correct data
 - The blogs table now has a 4th column 'title' to take the title of the blog entry created
 
-austinN - 2021-11-08 09:22
+austinN -- 2021-11-08 09:22
 - finishPost now displays the user's username in userblog.html after the new post has been created
 - created findBlogs function in userdb.py, which takes the titles and text of the blogs corresponding to a username
 
-roshaniS - 2021-11-08 09:24
+roshaniS -- 2021-11-08 09:24
 - removed the message parameter when rendering login.html in the disp_loginpage function so that the login page doesn't display "None"
 - added conditions (with appropriate error messages) in the register_auth function for if the user inputs no username and/or password on the register page
 - added button on the register page (along with the appropriate function) for the user to go back to the login page
 
-roshaniS - 2021-11-08 20:21
+roshaniS -- 2021-11-08 20:21
 - removed commented out hardcoded username and password, as they aren't necessary anymore
 - removed diagnostic print statements, were there for testing only
 - added and changed some comments for readability; allows us to understand the code later on
 
-roshaniS - 2021-11-08 23:31
+roshaniS -- 2021-11-08 23:31
 - changed one comment
 - moved code from loginpage.py to __init__.py 
 - deleted loginpage.py
