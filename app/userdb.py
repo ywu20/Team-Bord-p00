@@ -69,8 +69,8 @@ def findBlogs(username):
     text=c.fetchall()
     dictionary={}
     for i in titles:
-    	dictionary[i[0]]=titles[i]
-    	dictionary[i[1]]=text[i]
+        dictionary[i]=text[0]
+    return dictionary
     db.commit()
     db.close()
 
