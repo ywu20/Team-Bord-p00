@@ -149,3 +149,6 @@ roshaniS -- 2021-11-09 21:00
 - fixed form tag on editBlog.html 
 - fixed functionality of the findBlogs function in userdb.py
 - the buttons displayed on the user's personal blog page now display the blog titles correctly (without the parentheses and quotes)
+
+austinN -- 2021-11-10 09:12
+- finished editBlog function in userdb.py, which takes three parameters (username, title, and text) and replaces the text of the row in the database that has the corresponding username and title
