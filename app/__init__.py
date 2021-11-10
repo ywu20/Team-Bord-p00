@@ -97,9 +97,11 @@ def logOut():
     return render_template('login.html', message = 'You have successfully logged out.') # takes the user back to the login page
 
 # temporary
-@app.route("/blog1", methods=['GET', 'POST'])
+@app.route("/blogpage", methods=['GET', 'POST'])
 def blogPage():
-    return render_template('indivBlog.html')
+    blogs = userdb.findBlogs(session['user'])
+    title = request.form['blogsub']
+    return render_template('indivBlog.html', blogTitle = title, username = session['user'], blogText = blogs[title])
 
 @app.route("/createPost", methods=['GET', 'POST'])
 def createPost():
@@ -116,6 +118,7 @@ def finishPost():
     blogKey=os.urandom(32)
     userU=session['user']
     userdb.addBlog(userU, blogKey, title, text)
+    # print(request.form['sub1'])
     return render_template('userblog.html', heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
 
 # ================================================================================ #
