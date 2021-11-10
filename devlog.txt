@@ -144,3 +144,8 @@ roshaniS -- 2021-11-08 23:31
 - changed one comment
 - moved code from loginpage.py to __init__.py 
 - deleted loginpage.py
+
+roshaniS -- 2021-11-09 21:00
+- fixed form tag on editBlog.html 
+- fixed functionality of the findBlogs function in userdb.py
+- the buttons displayed on the user's personal blog page now display the blog titles correctly (without the parentheses and quotes)
