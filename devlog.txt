@@ -152,3 +152,8 @@ roshaniS -- 2021-11-09 21:00
 
 austinN -- 2021-11-10 09:12
 - finished editBlog function in userdb.py, which takes three parameters (username, title, and text) and replaces the text of the row in the database that has the corresponding username and title
+
+roshaniS -- 2021-11-10 18:35
+- changed the button tag in userblog.html to an input tag and added a value attribute with the blog title
+- added to the blogPage function in __init__.py, which takes the user to a blog page after they click a button on their personal blog page 
+- modified indivBlog.html to add the variables needed for render_template in the blogPage function of __init__.py 
