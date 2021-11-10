@@ -63,14 +63,15 @@ def checkUserPass(username, password):
 def findBlogs(username):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("SELECT blogTitle FROM blogs WHERE username = " + username)
+    c.execute("SELECT blogTitle FROM blogs WHERE username = " + "'" + username + "'")
     titles=c.fetchall()
-    c.execute("SELECT blogText FROM blogs WHERE username = " + username)
+    c.execute("SELECT blogText FROM blogs WHERE username = " + "'" + username + "'")
     text=c.fetchall()
     dictionary={}
-    for i in titles:
-        dictionary[i]=text[0]
+    i = 0
+    while (i < len(titles)):
+        dictionary[titles[i][0]]=text[i][0]
+        i += 1
     return dictionary
     db.commit()
     db.close()
-
