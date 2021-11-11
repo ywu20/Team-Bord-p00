@@ -178,6 +178,7 @@ thomasY -- 2021-11-11 16:44
 roshaniS -- 2021-11-11 17:12
 - fixed buttons on the page that displays all blogs
 - now it successfully redirects to other users' blog pages without allowing the user logged in to create a post on those pages
+- however, it doesn't display the other users' blogs if that's not the user that's logged in
 
 thomasY -- 2021-11-11 17:23
 - Updated templates so that some buttons only show up if the user in session matches the same user who created the blog/entry.
