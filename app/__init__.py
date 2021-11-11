@@ -126,6 +126,13 @@ def finishPost():
 def displayAll():
     return render_template('allBlogs.html', users = userdb.findAllUsers())
 
+@app.route("/editPost", methods=['GET', 'POST'])
+def editPost():
+    blogTitle = request.form['blogTitle']
+    title = request.form['entrysub']
+    entry = userdb.findEntryText(session['user'], blogTitle, title)
+    return render_template('editBlog.html', entryTitle = title, entryText = entry, blogTitle = blogTitle)
+
 @app.route("/finishEditPost", methods=['GET', 'POST'])
 def finishEditPost():
     '''
@@ -135,14 +142,9 @@ def finishEditPost():
     title = request.form['title']
     oldTitle = request.form['oldTitle']
     text = request.form['paragraph_text']
-    userdb.editBlog(userU, oldTitle, title, text)
+    blogTitle = request.form['blogTitle']
+    userdb.editEntry(userU, blogTitle, oldTitle, title, text)
     return render_template('userblog.html', heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
-
-@app.route("/editPost", methods=['GET', 'POST'])
-def editPost():
-    blogs = userdb.findBlogs(session['user'])
-    title = request.form['title']
-    return render_template('editBlog.html', blogTitle = title, blogText = blogs[title])
 
 @app.route("/createEntry", methods=['GET', 'POST'])
 def createEntry():

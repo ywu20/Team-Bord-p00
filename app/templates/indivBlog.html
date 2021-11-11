@@ -39,7 +39,8 @@ P00: Individual Blog Page
 
     {% for key, value in entriesList.items() %}
           <form action="editPost" method="post">
-            <input type="submit" name="blogsub" value="{{key}}">
+            <input type="hidden" name="blogTitle" value="{{blogTitle}}">
+            <input type="submit" name="entrysub" value="{{key}}">
           </form>
           <p>{{value}}</p>
     {% endfor %}
