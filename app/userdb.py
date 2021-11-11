@@ -131,15 +131,6 @@ def findEntries(username, blogTitle):
     db.commit()
     db.close()
 
-def findEntryText(username, blogTitle, entryTitle):
-    db = sqlite3.connect(DB_FILE)
-    c = db.cursor()
-    c.execute("SELECT entryText FROM entries WHERE user = "+"'"+username+"'"+"AND blogTitle = "+"'"+blogTitle+"'"+"AND entryTitle = "+"'"+entryTitle+"'")
-    entryText = c.fetchall()
-    return entryText[0][0]
-    db.commit()
-    db.close()
-
 def editEntry(UName, blog, title, newTitle, text):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
