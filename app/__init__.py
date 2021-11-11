@@ -160,7 +160,9 @@ def finishEntry():
     text = request.form['paragraph_text']
     userU=session['user']
     userdb.addEntry(userU, blogTitle, title, text)
-    return render_template('userblog.html', heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
+    blogs = userdb.findBlogs(userU)
+    entries = userdb.findEntries(userU, blogTitle)
+    return render_template('indivBlog.html', blogTitle = blogTitle, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
 
 
 # ================================================================================ #
