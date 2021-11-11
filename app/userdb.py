@@ -19,6 +19,14 @@ command2 = '''CREATE TABLE IF NOT EXISTS blogs(
     blogText TEXT NOT NULL)'''
 c.execute(command2)
 
+command3 = '''CREATE TABLE IF NOT EXISTS entries(
+    user TEXT NOT NULL,
+    blogTitle TEXT NOT NULL,
+    entryTitle TEXT NOT NULL,
+    entryText TEXT NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT)'''
+c.execute(command3)
+
 db.commit()
 db.close()
 
@@ -99,3 +107,10 @@ def findAllBlogs():
         return dictionary
         db.commit()
         db.close()
+
+def addEntry(username, blogTitle, entryTitle, entryText):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("INSERT INTO entries(user, blogTitle, entryTitle, entryText) VALUES(?, ?, ?, ?)", (username, blogTitle, entryTitle, entryText))
+    db.commit()
+    db.close()

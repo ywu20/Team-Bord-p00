@@ -28,11 +28,12 @@ P00: Individual Blog Page
     </body>
 
     <p>
-        {{blogText}}
+        Description: {{blogDescription}}
     </p>
 
     <form action="/createEntry" method="post">
-       <button type="submit" name="sub2">Add New Entry</button>
+      <input type="hidden" name="blogTitle" value="{{blogTitle}}">
+      <button type="submit" name="sub2">Add New Entry</button>
     </form>
     <br>
     <br>

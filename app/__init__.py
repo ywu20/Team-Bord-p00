@@ -101,7 +101,7 @@ def logOut():
 def blogPage():
     blogs = userdb.findBlogs(session['user'])
     title = request.form['blogsub']
-    return render_template('indivBlog.html', blogTitle = title, username = session['user'], blogText = blogs[title])
+    return render_template('indivBlog.html', blogTitle = title, username = session['user'], blogDescription = blogs[title])
 
 @app.route("/createPost", methods=['GET', 'POST'])
 def createPost():
@@ -145,7 +145,17 @@ def editPost():
 
 @app.route("/createEntry", methods=['GET', 'POST'])
 def createEntry():
-    return render_template('createEntry.html')
+    title = request.form['blogTitle']
+    return render_template('createEntry.html', blogTitle = title)
+
+@app.route("/finishEntry", methods=['GET', 'POST'])
+def finishEntry():
+    blogTitle = request.form['blogTitle']
+    title = request.form['title']
+    text = request.form['paragraph_text']
+    userU=session['user']
+    userdb.addEntry(userU, blogTitle, title, text)
+    return render_template('userblog.html', heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
 
 
 # ================================================================================ #
