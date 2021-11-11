@@ -31,17 +31,19 @@ P00: Individual Blog Page
         Description: {{blogDescription}}
     </p>
 
-    {% for entryTitle in entriesList %}
-          <form action="editPost" method="post">
-            <input type="submit" name="blogsub" value="{{entryTitle}}">
-          </form>
-          <br>
-    {% endfor %}
-
     <form action="/createEntry" method="post">
       <input type="hidden" name="blogTitle" value="{{blogTitle}}">
       <button type="submit" name="sub2">Add New Entry</button>
     </form>
+    <br>
+
+    {% for key, value in entriesList.items() %}
+          <form action="editPost" method="post">
+            <input type="submit" name="blogsub" value="{{key}}">
+          </form>
+          <p>{{value}}</p>
+    {% endfor %}
+
     <br>
     <br>
 
