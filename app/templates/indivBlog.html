@@ -2,7 +2,7 @@
 <!--
 Team Bord: Austin Ngan (Gerald), Thomas Yu (Perry), Mark Zhu (Bob the Third Jr), Roshani Shrestha (Pete)
 SoftDev
-P00: Individual Blog Page 
+P00: Individual Blog Page
 2021-10-30
 -->
 
@@ -12,7 +12,7 @@ P00: Individual Blog Page
    <head>
      <title> Blog Title </title>
    </head>
-   
+
    <body>
         <form action="/" method="POST">
             <button type="submit">Back to Blog Page</button>
@@ -22,9 +22,11 @@ P00: Individual Blog Page
         </h1>
         <h2>
             Author: {{username}}
-            <br>Date: Some miracle
+            <br>
+            Date: Some miracle
         </h2>
     </body>
+
     <div style="text-align: right;">
         <button type="button">Edit</button>
     </div>
@@ -34,6 +36,10 @@ P00: Individual Blog Page
 
     <br>
     <br>
+    <form action="editPost" method="post">
+       <button type="submit" name="sub2">Edit Post</button>
+    </form>
+
     <form action="/" method="POST">
         <button type="submit">Back to Blog Page</button>
     <form>
