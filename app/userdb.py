@@ -130,3 +130,17 @@ def findEntries(username, blogTitle):
     return dictionary
     db.commit()
     db.close()
+
+def findAllUsers():
+        db = sqlite3.connect(DB_FILE)
+        c = db.cursor()
+        c.execute("SELECT username FROM logins")
+        users=c.fetchall()
+        dictionary={}
+        i = 0
+        while (i < len(users)):
+            dictionary[users[i][0]]=users[i][0]
+            i += 1
+        return dictionary
+        db.commit()
+        db.close()
