@@ -161,3 +161,6 @@ roshaniS -- 2021-11-10 18:35
 austinN -- 2021-11-11 11:47
 - editBlog in userdb.py edits the title now (might not in later version)
 - added different templates for creating and editing posts
+
+austinN -- 2021-11-11 12:55
+- finished implementation of editBlog
