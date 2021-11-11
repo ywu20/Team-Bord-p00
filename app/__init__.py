@@ -143,6 +143,10 @@ def editPost():
     title = request.form['title']
     return render_template('editBlog.html', blogTitle = title, blogText = blogs[title])
 
+@app.route("/createEntry", methods=['GET', 'POST'])
+def createEntry():
+    return render_template('createEntry.html')
+
 
 # ================================================================================ #
 
