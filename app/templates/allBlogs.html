@@ -25,9 +25,9 @@ P00: User's Personal Blog Page
      <br>
      <br>
 
-	{% for blogTitle in listBlog %}
+	{% for name in users %}
         <form action="blogpage" method="post">
-          <input type="submit" name="blogsub" value="{{blogTitle}}">
+          <input type="submit" name="blogsub" value="{{name}}">
         </form>
         <br>
      {% endfor %}
