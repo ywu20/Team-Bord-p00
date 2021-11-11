@@ -10,13 +10,20 @@ P00: Individual Blog Page
  <html>
 
    <head>
-     <title> Blog Title </title>
+     <title> {{blogTitle}} </title>
    </head>
 
    <body>
+    {% if sessionU %}
         <form action="/" method="POST">
             <button type="submit">Back to Blogs</button>
         </form>
+    {% else %}
+        <form action="/userblogs" method="POST">
+          <input type="hidden" name="usersub" value="{{username}}">
+            <button type="submit">Back to {{username}}'s Blogs</button>
+  </form>
+    {% endif %}
         <h1>
            {{blogTitle}}
         </h1>
