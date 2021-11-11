@@ -182,3 +182,7 @@ roshaniS -- 2021-11-11 17:12
 
 thomasY -- 2021-11-11 17:23
 - Updated templates so that some buttons only show up if the user in session matches the same user who created the blog/entry.
+
+roshaniS -- 2021-11-11 18:07
+- fixed button on the other users' blog pages (the ones being viewed)
+- the button now redirects back to the blogs of the user being viewed, not of the one logged in 
