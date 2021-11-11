@@ -124,7 +124,7 @@ def finishPost():
 
 @app.route("/displayAll", methods=['GET', 'POST'])
 def displayAll():
-return render_template('allBlogs.html', users = userdb.findAllUsers())
+    return render_template('allBlogs.html', users = userdb.findAllUsers())
 
 @app.route("/finishEditPost", methods=['GET', 'POST'])
 def finishEditPost():
