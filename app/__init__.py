@@ -101,7 +101,8 @@ def logOut():
 def blogPage():
     blogs = userdb.findBlogs(session['user'])
     title = request.form['blogsub']
-    return render_template('indivBlog.html', blogTitle = title, username = session['user'], blogDescription = blogs[title])
+    entries = userdb.findEntries(session['user'], title)
+    return render_template('indivBlog.html', blogTitle = title, username = session['user'], blogDescription = blogs[title], entriesList = entries)
 
 @app.route("/createPost", methods=['GET', 'POST'])
 def createPost():

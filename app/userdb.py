@@ -114,3 +114,19 @@ def addEntry(username, blogTitle, entryTitle, entryText):
     c.execute("INSERT INTO entries(user, blogTitle, entryTitle, entryText) VALUES(?, ?, ?, ?)", (username, blogTitle, entryTitle, entryText))
     db.commit()
     db.close()
+
+def findEntries(username, blogTitle):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT entryTitle FROM entries WHERE user = "+"'"+username+"'"+"AND blogTitle = "+"'"+blogTitle+"'"+"ORDER BY id DESC")
+    entryTitles=c.fetchall()
+    c.execute("SELECT entryText FROM entries WHERE user = "+"'"+username+"'"+"AND blogTItle = "+"'"+blogTitle+"'"+"ORDER BY id DESC")
+    entryText=c.fetchall()
+    dictionary={}
+    i = 0
+    while (i < len(entryTitles)):
+        dictionary[entryTitles[i][0]]=entryText[i][0]
+        i += 1
+    return dictionary
+    db.commit()
+    db.close()

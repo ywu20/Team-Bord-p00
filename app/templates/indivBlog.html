@@ -15,7 +15,7 @@ P00: Individual Blog Page
 
    <body>
         <form action="/" method="POST">
-            <button type="submit">Back to Blog Page</button>
+            <button type="submit">Back to Blogs</button>
         </form>
         <h1>
            {{blogTitle}}
@@ -30,6 +30,13 @@ P00: Individual Blog Page
     <p>
         Description: {{blogDescription}}
     </p>
+
+    {% for entryTitle in entriesList %}
+          <form action="editPost" method="post">
+            <input type="submit" name="blogsub" value="{{entryTitle}}">
+          </form>
+          <br>
+    {% endfor %}
 
     <form action="/createEntry" method="post">
       <input type="hidden" name="blogTitle" value="{{blogTitle}}">
