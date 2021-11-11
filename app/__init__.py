@@ -121,15 +121,19 @@ def finishPost():
     # print(request.form['sub1'])
     return render_template('userblog.html', heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
 
+@app.route("/finishEditPost", methods=['GET', 'POST'])
 def finishEditPost():
     '''
     For when the user wants to edit a previous Post
     '''
     userU=session['user']
     title = request.form['title']
+    oldTitle = request.form['oldTitle']
     text = request.form['paragraph_text']
-    userdb.editBlog(userU, title, text)
+    userdb.editBlog(userU, oldTitle, title, text)
+    return render_template('userblog.html', heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
 
+@app.route("/editPost", methods=['GET', 'POST'])
 def editPost():
     return render_template('editBlog.html')
 
