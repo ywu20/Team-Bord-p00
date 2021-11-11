@@ -170,3 +170,7 @@ thomasY -- 2021-11-11 15:43
   - New table for entries
   - Got the entry titles to display on each individual blog page
 - Updated text and button names on some templates
+
+thomasY -- 2021-11-11 16:44
+- Now the indivBlog page shows the text for each entry under the title.
+- Fixed redirects when the user finishes editing or creating a entry to now go to the individual blog page.
