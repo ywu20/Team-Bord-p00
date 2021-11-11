@@ -14,8 +14,6 @@ import os
 app = Flask(__name__)    # create Flask object
 app.secret_key=os.urandom(32) # generates a secret key
 
-teamBord = "Team Bord: Austin Ngan, Roshani Shrestha, Thomas Yu, Mark Zhu" #TNPG + roster for both landing and response pages
-
 # ================================================================ #
 
 @app.route("/", methods=['GET', 'POST'])
@@ -24,7 +22,7 @@ def disp_loginpage():
     Displays the login page or the user's personal blog page if they are logged in.
     '''
     if "user" in session: # checks if the user is logged in
-        return render_template('userblog.html', sessonU = True, heading = teamBord, username = session['user'], listBlog = userdb.findBlogs(session['user']))
+        return render_template('userblog.html', sessonU = True, username = session['user'], listBlog = userdb.findBlogs(session['user']))
     else:
         return render_template( 'login.html')
 
@@ -73,7 +71,7 @@ def authenticate():
         tempPass = request.form['password']
         if (userdb.checkUserPass(tempUser, tempPass)): # checks if the username and password are both correct
             session['user'] = tempUser # adds session data
-            return render_template('userblog.html', sessionU = True, heading = teamBord, username = session['user'], listBlog = userdb.findBlogs(request.form['username']))
+            return render_template('userblog.html', sessionU = True, username = session['user'], listBlog = userdb.findBlogs(request.form['username']))
         else:
             if (not userdb.checkUser(tempUser)): # checks if the username is incorrect
                 error = "Error: Username does not exist."
@@ -124,7 +122,7 @@ def finishPost():
     userU=session['user']
     userdb.addBlog(userU, blogKey, title, text)
     # print(request.form['sub1'])
-    return render_template('userblog.html', sessionU = True, heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
+    return render_template('userblog.html', sessionU = True, username = userU, listBlog = userdb.findBlogs(session['user']))
 
 @app.route("/displayAll", methods=['GET', 'POST'])
 def displayAll():
@@ -134,7 +132,10 @@ def displayAll():
 def otherUserPage():
     user = request.form['usersub']
     blogs = userdb.findBlogs(user)
-    return render_template('userblog.html', sessionU = False, username = user, listBlog = blogs)
+    if (user == session['user']):
+        return render_template('userblog.html', sessionU = True, username = user, listBlog = blogs)
+    else:
+        return render_template('userblog.html', sessionU = False, username = user, listBlog = blogs)
 
 @app.route("/editPost", methods=['GET', 'POST'])
 def editPost():
