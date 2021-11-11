@@ -126,6 +126,12 @@ def finishPost():
 def displayAll():
     return render_template('allBlogs.html', users = userdb.findAllUsers())
 
+@app.route("/userblogs", methods=['GET', 'POST'])
+def otherUserPage():
+    user = request.form['usersub']
+    blogs = userdb.findBlogs(user)
+    return render_template('userblog.html', sessionU = False, username = user, listBlog = blogs)
+
 @app.route("/editPost", methods=['GET', 'POST'])
 def editPost():
     blogTitle = request.form['blogTitle']
