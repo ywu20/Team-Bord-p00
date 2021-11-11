@@ -186,3 +186,8 @@ thomasY -- 2021-11-11 17:23
 roshaniS -- 2021-11-11 18:07
 - fixed button on the other users' blog pages (the ones being viewed)
 - the button now redirects back to the blogs of the user being viewed, not of the one logged in 
+
+roshaniS -- 2021-11-11 18:39
+- added a button on the page that displays all blogs to return to the blogs of the user who is logged in
+- also added this button on the page that displays another user's blogs 
+- reorganized buttons 
