@@ -18,7 +18,11 @@ P00: User's Personal Blog Page
        {{heading}}
        <br>
        <br>
+       {% if sessionU %}
             Hey, {{username}}! Welcome to your blogs!
+       {% else %}
+            Welcome to the blogs of {{username}}!
+       {% endif %}
        <br>
      </h1>
 
@@ -27,11 +31,13 @@ P00: User's Personal Blog Page
      </form>
      <br>
 
+     {% if sessionU %}
      <form action="createPost" method="post">
         <button type="submit" name="sub2">Create Blog</button>
      </form>
 
      <br>
+     {% endif %}
 
 	{% for blogTitle in listBlog %}
         <form action="blogpage" method="post">

@@ -31,17 +31,25 @@ P00: Individual Blog Page
         Description: {{blogDescription}}
     </p>
 
-    <form action="/createEntry" method="post">
-      <input type="hidden" name="blogTitle" value="{{blogTitle}}">
-      <button type="submit" name="sub2">Add New Entry</button>
-    </form>
-    <br>
+    {% if sessionU %}
+      <form action="/createEntry" method="post">
+        <input type="hidden" name="blogTitle" value="{{blogTitle}}">
+        <button type="submit" name="sub2">Add New Entry</button>
+      </form>
+      <br>
+    {% endif %}
 
     {% for key, value in entriesList.items() %}
+      {% if sessionU %}
           <form action="editPost" method="post">
             <input type="hidden" name="blogTitle" value="{{blogTitle}}">
             <input type="submit" name="entrysub" value="{{key}}">
           </form>
+      {% else %}
+          <h3>
+            {{key}}
+          </h3>
+      {% endif %}
           <p>{{value}}</p>
     {% endfor %}
 

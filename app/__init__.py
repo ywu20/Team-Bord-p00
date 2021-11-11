@@ -24,7 +24,7 @@ def disp_loginpage():
     Displays the login page or the user's personal blog page if they are logged in.
     '''
     if "user" in session: # checks if the user is logged in
-        return render_template('userblog.html', heading = teamBord, username = session['user'], listBlog = userdb.findBlogs(session['user']))
+        return render_template('userblog.html', sessonU = True, heading = teamBord, username = session['user'], listBlog = userdb.findBlogs(session['user']))
     else:
         return render_template( 'login.html')
 
@@ -73,7 +73,7 @@ def authenticate():
         tempPass = request.form['password']
         if (userdb.checkUserPass(tempUser, tempPass)): # checks if the username and password are both correct
             session['user'] = tempUser # adds session data
-            return render_template('userblog.html', heading = teamBord, username = session['user'], listBlog = userdb.findBlogs(request.form['username']))
+            return render_template('userblog.html', sessionU = True, heading = teamBord, username = session['user'], listBlog = userdb.findBlogs(request.form['username']))
         else:
             if (not userdb.checkUser(tempUser)): # checks if the username is incorrect
                 error = "Error: Username does not exist."
@@ -102,14 +102,14 @@ def blogPage():
     blogs = userdb.findBlogs(session['user'])
     title = request.form['blogsub']
     entries = userdb.findEntries(session['user'], title)
-    return render_template('indivBlog.html', blogTitle = title, username = session['user'], blogDescription = blogs[title], entriesList = entries)
+    return render_template('indivBlog.html', blogTitle = title, sessionU = True, username = session['user'], blogDescription = blogs[title], entriesList = entries)
 
 @app.route("/createPost", methods=['GET', 'POST'])
 def createPost():
     '''For when the user wants to make a new post'''
     return render_template('createBlog.html')
 
-@app.route("/finishPost", methods=['GET', 'POST'])
+@app.route("/finishBlog", methods=['GET', 'POST'])
 def finishPost():
     '''
     For when the user wants to finish their post
@@ -120,7 +120,7 @@ def finishPost():
     userU=session['user']
     userdb.addBlog(userU, blogKey, title, text)
     # print(request.form['sub1'])
-    return render_template('userblog.html', heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
+    return render_template('userblog.html', sessionU = True, heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
 
 @app.route("/displayAll", methods=['GET', 'POST'])
 def displayAll():
@@ -146,7 +146,7 @@ def finishEditPost():
     userdb.editEntry(userU, blogTitle, oldTitle, title, text)
     blogs = userdb.findBlogs(userU)
     entries = userdb.findEntries(userU, blogTitle)
-    return render_template('indivBlog.html', blogTitle = blogTitle, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
+    return render_template('indivBlog.html', blogTitle = blogTitle, sessionU = True, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
 
 @app.route("/createEntry", methods=['GET', 'POST'])
 def createEntry():
@@ -162,7 +162,7 @@ def finishEntry():
     userdb.addEntry(userU, blogTitle, title, text)
     blogs = userdb.findBlogs(userU)
     entries = userdb.findEntries(userU, blogTitle)
-    return render_template('indivBlog.html', blogTitle = blogTitle, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
+    return render_template('indivBlog.html', blogTitle = blogTitle, sessionU = True, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
 
 
 # ================================================================================ #
