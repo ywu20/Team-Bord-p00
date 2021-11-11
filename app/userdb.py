@@ -76,10 +76,9 @@ def findBlogs(username):
     db.commit()
     db.close()
 
-def editBlog(UName, title, text):
+def editBlog(UName, title, newTitle, text):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("UPDATE blogs SET blogText = " + "'" + text + "'" + "WHERE username = " + UName + "' AND blogTitle = " + "'" + title + "'")
+    c.execute("UPDATE blogs SET blogText = " + "'" + text + "'" + "AND title =" + "'" + newTitle + "'"  + "WHERE username = " + UName + "' AND blogTitle = " + "'" + title + "'")
     db.commit()
     db.close()
-    
