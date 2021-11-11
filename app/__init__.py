@@ -139,7 +139,9 @@ def finishEditPost():
 
 @app.route("/editPost", methods=['GET', 'POST'])
 def editPost():
-    return render_template('editBlog.html')
+    blogs = userdb.findBlogs(session['user'])
+    title = request.form['title']
+    return render_template('editBlog.html', blogTitle = title, blogText = blogs[title])
 
 
 # ================================================================================ #

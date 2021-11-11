@@ -23,9 +23,9 @@ P00: User's Personal Blog Page
      <br>
 
      <form action="finishEditPost" method="post">
-      New Title: <input type="text" name="title">
+      Title: <input type="text" name="title" value="{{ blogTitle }}">
       <br><br/>
-      <textarea input type="text" name="paragraph_text" cols="50" rows="10"></textarea>
+      <textarea input type="text" name="paragraph_text" cols="50" rows="10">{{blogText}}</textarea>
       <br><br>
       Confirm the name of your old title to confirm your edits: <input type="text" name="oldTitle">
       <br><br/>
