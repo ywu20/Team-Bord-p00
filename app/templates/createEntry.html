@@ -33,8 +33,10 @@ P00: Add an Entry
 
     <br><br>
 
-    <form action="finishEntry" method="post">
-       <button type="submit" name="sub1">Cancel Entry</button>
+    <form action="blogpage" method="post">
+      <input type="hidden" name="username" value="{{username}}">
+      <input type="hidden" name="blogsub" value="{{blogTitle}}">
+      <button type="submit" name="sub1">Cancel Entry</button>
     </form>
 
 

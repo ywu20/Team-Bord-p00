@@ -36,8 +36,10 @@ P00: User's Personal Blog Page
 
      <br><br>
 
-     <form action="finishEditPost" method="post">
-        <button type="submit" name="sub1">Cancel Post</button>
+     <form action="blogpage" method="post">
+       <input type="hidden" name="username" value="{{username}}">
+       <input type="hidden" name="blogsub" value="{{blogTitle}}">
+      <button type="submit" name="sub1">Cancel</button>
      </form>
 
 

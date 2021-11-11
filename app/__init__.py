@@ -106,10 +106,10 @@ def blogPage():
     else:
         return render_template('indivBlog.html', blogTitle = title, sessionU = False, username = user, blogDescription = blogs[title], entriesList = entries)
 
-@app.route("/createPost", methods=['GET', 'POST'])
+@app.route("/createBlog", methods=['GET', 'POST'])
 def createPost():
     '''For when the user wants to make a new post'''
-    return render_template('createBlog.html')
+    return render_template('createBlog.html', username = session['user'])
 
 @app.route("/finishBlog", methods=['GET', 'POST'])
 def finishPost():
@@ -142,7 +142,7 @@ def editPost():
     blogTitle = request.form['blogTitle']
     title = request.form['entrysub']
     entry = userdb.findEntryText(session['user'], blogTitle, title)
-    return render_template('editBlog.html', entryTitle = title, entryText = entry, blogTitle = blogTitle)
+    return render_template('editBlog.html', entryTitle = title, entryText = entry, blogTitle = blogTitle, username = session['user'])
 
 @app.route("/finishEditPost", methods=['GET', 'POST'])
 def finishEditPost():
@@ -162,7 +162,7 @@ def finishEditPost():
 @app.route("/createEntry", methods=['GET', 'POST'])
 def createEntry():
     title = request.form['blogTitle']
-    return render_template('createEntry.html', blogTitle = title)
+    return render_template('createEntry.html', username = session['user'], blogTitle = title)
 
 @app.route("/finishEntry", methods=['GET', 'POST'])
 def finishEntry():

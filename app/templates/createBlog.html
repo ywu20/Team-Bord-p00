@@ -23,6 +23,8 @@ P00: User's Personal Blog Page
 
      <br>
 
+     Description:
+     <br>
      <form action="finishBlog" method="post">
       Title: <input type="text" name="title">
       <br><br/>
@@ -33,8 +35,9 @@ P00: User's Personal Blog Page
 
      <br><br>
 
-     <form action="finishBlog" method="post">
-        <button type="submit" name="sub1">Cancel</button>
+     <form action="userblogs" method="post">
+      <input type="hidden" name="usersub" value="{{username}}">
+      <button type="submit" name="sub1">Cancel</button>
      </form>
 
 
