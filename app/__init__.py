@@ -21,10 +21,10 @@ teamBord = "Team Bord: Austin Ngan, Roshani Shrestha, Thomas Yu, Mark Zhu" #TNPG
 @app.route("/", methods=['GET', 'POST'])
 def disp_loginpage():
     '''
-    Displays the login page or the user's personal blog page if they are logged in. 
+    Displays the login page or the user's personal blog page if they are logged in.
     '''
     if "user" in session: # checks if the user is logged in
-        return render_template('userblog.html', heading = teamBord, username = session['user'], listBlog = userdb.findBlogs(session['user'])) 
+        return render_template('userblog.html', heading = teamBord, username = session['user'], listBlog = userdb.findBlogs(session['user']))
     else:
         return render_template( 'login.html')
 
@@ -106,7 +106,7 @@ def blogPage():
 @app.route("/createPost", methods=['GET', 'POST'])
 def createPost():
     '''For when the user wants to make a new post'''
-    return render_template('editBlog.html')
+    return render_template('createBlog.html')
 
 @app.route("/finishPost", methods=['GET', 'POST'])
 def finishPost():
@@ -120,6 +120,19 @@ def finishPost():
     userdb.addBlog(userU, blogKey, title, text)
     # print(request.form['sub1'])
     return render_template('userblog.html', heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
+
+def finishEditPost():
+    '''
+    For when the user wants to edit a previous Post
+    '''
+    userU=session['user']
+    title = request.form['title']
+    text = request.form['paragraph_text']
+    userdb.editBlog(userU, title, text)
+
+def editPost():
+    return render_template('editBlog.html')
+
 
 # ================================================================================ #
 
