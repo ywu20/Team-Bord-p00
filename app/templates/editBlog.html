@@ -23,15 +23,18 @@ P00: User's Personal Blog Page
      <br>
 
      <form action="finishEditPost" method="post">
-      Title: <input type="text" name="title">
+      New Title: <input type="text" name="title">
       <br><br/>
       <textarea input type="text" name="paragraph_text" cols="50" rows="10"></textarea>
-      <input type="submit" value="Finish Post">
+      <br><br>
+      Confirm the name of your old title to confirm your edits: <input type="text" name="oldTitle">
+      <br><br/>
+      <input type="submit" value="Finish Editing">
      </form>
 
      <br><br>
 
-     <form action="blog1" method="post">
+     <form action="/" method="post">
         <button type="submit" name="sub1">Cancel Post</button>
      </form>
 
