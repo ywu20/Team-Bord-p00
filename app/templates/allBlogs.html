@@ -26,10 +26,10 @@ P00: User's Personal Blog Page
      <br>
 
   {% for name in users %}
-  <form action="userblogs" method="post">
-    <input type="submit" name="usersub" value="{{name}}">
-  </form>
-  <br>
+    <form action="/userblogs" method="post">
+      <input type="submit" name="usersub" value="{{name}}">
+    </form>
+    <br>
   {% endfor %}
 
      <br>

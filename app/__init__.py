@@ -99,10 +99,14 @@ def logOut():
 # temporary
 @app.route("/blogpage", methods=['GET', 'POST'])
 def blogPage():
-    blogs = userdb.findBlogs(session['user'])
+    user = request.form['username']
+    blogs = userdb.findBlogs(user)
     title = request.form['blogsub']
-    entries = userdb.findEntries(session['user'], title)
-    return render_template('indivBlog.html', blogTitle = title, sessionU = True, username = session['user'], blogDescription = blogs[title], entriesList = entries)
+    entries = userdb.findEntries(user, title)
+    if (user == session['user']):
+        return render_template('indivBlog.html', blogTitle = title, sessionU = True, username = user, blogDescription = blogs[title], entriesList = entries)
+    else:
+        return render_template('indivBlog.html', blogTitle = title, sessionU = False, username = user, blogDescription = blogs[title], entriesList = entries)
 
 @app.route("/createPost", methods=['GET', 'POST'])
 def createPost():
