@@ -116,8 +116,8 @@ austinN -- 2021-11-05 09:15
 - loginpage.py now imports userdb.py, register is now fully functioning and adds login info to a database
 
 roshaniS -- 2021-11-05 19:19
-- Added a function to make a dictionary out of the logins table 
-- Added a function in userdb.py to check if the username exists 
+- Added a function to make a dictionary out of the logins table
+- Added a function in userdb.py to check if the username exists
 - Added a function in userdb.py to check if the username and password are both correct
 - Used functions from userdb.py in the register_auth and authenticate functions of loginpage.py so that the user can login and register properly
 
@@ -142,11 +142,11 @@ roshaniS -- 2021-11-08 20:21
 
 roshaniS -- 2021-11-08 23:31
 - changed one comment
-- moved code from loginpage.py to __init__.py 
+- moved code from loginpage.py to __init__.py
 - deleted loginpage.py
 
 roshaniS -- 2021-11-09 21:00
-- fixed form tag on editBlog.html 
+- fixed form tag on editBlog.html
 - fixed functionality of the findBlogs function in userdb.py
 - the buttons displayed on the user's personal blog page now display the blog titles correctly (without the parentheses and quotes)
 
@@ -155,8 +155,8 @@ austinN -- 2021-11-10 09:12
 
 roshaniS -- 2021-11-10 18:35
 - changed the button tag in userblog.html to an input tag and added a value attribute with the blog title
-- added to the blogPage function in __init__.py, which takes the user to a blog page after they click a button on their personal blog page 
-- modified indivBlog.html to add the variables needed for render_template in the blogPage function of __init__.py 
+- added to the blogPage function in __init__.py, which takes the user to a blog page after they click a button on their personal blog page
+- modified indivBlog.html to add the variables needed for render_template in the blogPage function of __init__.py
 
 austinN -- 2021-11-11 11:47
 - editBlog in userdb.py edits the title now (might not in later version)
@@ -164,3 +164,9 @@ austinN -- 2021-11-11 11:47
 
 austinN -- 2021-11-11 12:55
 - finished implementation of editBlog
+
+thomasY -- 2021-11-11 15:43
+- Created entries for each blog
+  - New table for entries
+  - Got the entry titles to display on each individual blog page
+- Updated text and button names on some templates
