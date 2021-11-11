@@ -22,7 +22,7 @@ def disp_loginpage():
     Displays the login page or the user's personal blog page if they are logged in.
     '''
     if "user" in session: # checks if the user is logged in
-        return render_template('userblog.html', sessonU = True, username = session['user'], listBlog = userdb.findBlogs(session['user']))
+        return render_template('userblog.html', sessionU = True, username = session['user'], listBlog = userdb.findBlogs(session['user']))
     else:
         return render_template( 'login.html')
 

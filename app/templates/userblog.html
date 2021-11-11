@@ -26,11 +26,6 @@ P00: User's Personal Blog Page
        <br>
      </h1>
 
-     <form action="displayAll" method="post">
-        <button type="submit" name="sub1">All Users</button>
-     </form>
-     <br>
-
      {% if sessionU %}
      <form action="createBlog" method="post">
         <button type="submit" name="sub2">Create Blog</button>
@@ -47,8 +42,20 @@ P00: User's Personal Blog Page
         </form>
         <br>
      {% endfor %}
-
      <br>
+
+     {% if not sessionU %}
+     <form action="/" method="post">
+      <button type="submit" name="blogs">Back to your blogs</button>
+     </form>
+     {% endif %}
+     <br>
+
+     <form action="displayAll" method="post">
+      <button type="submit" name="sub1">All Users</button>
+     </form>
+     <br>
+
      <form action="logout" method="post">
         <button type="submit" name="sub1">Logout</button>
      </form>
