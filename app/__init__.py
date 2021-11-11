@@ -137,12 +137,33 @@ def otherUserPage():
     else:
         return render_template('userblog.html', sessionU = False, username = user, listBlog = blogs)
 
-@app.route("/editPost", methods=['GET', 'POST'])
+@app.route("/editBlog", methods=['GET', 'POST'])
+def editBlog():
+    blogTitle = request.form['blogTitle']
+    blogs = userdb.findBlogs(session['user'])
+    return render_template('editBlog.html', blogTitle = blogTitle, blogDescription = blogs[blogTitle], username = session['user'])
+
+@app.route("/finishEditBlog", methods=['GET', 'POST'])
+def finishEditBlog():
+    '''
+    For when the user wants to edit Blog Title/Description
+    '''
+    userU=session['user']
+    title = request.form['title']
+    oldTitle = request.form['oldTitle']
+    text = request.form['paragraph_text']
+    userdb.editBlog(userU, oldTitle, title, text)
+    entries = userdb.findEntries(session['user'], title)
+    blogs = userdb.findBlogs(session['user'])
+    return render_template('indivBlog.html', blogTitle = title, sessionU = True, username = session['user'], blogDescription = blogs[title], entriesList = entries)
+
+
+@app.route("/editEntry", methods=['GET', 'POST'])
 def editPost():
     blogTitle = request.form['blogTitle']
     title = request.form['entrysub']
-    entry = userdb.findEntryText(session['user'], blogTitle, title)
-    return render_template('editBlog.html', entryTitle = title, entryText = entry, blogTitle = blogTitle, username = session['user'])
+    entry = userdb.findEntries(session['user'], blogTitle)[title]
+    return render_template('editEntry.html', entryTitle = title, entryText = entry, blogTitle = blogTitle, username = session['user'])
 
 @app.route("/finishEditPost", methods=['GET', 'POST'])
 def finishEditPost():

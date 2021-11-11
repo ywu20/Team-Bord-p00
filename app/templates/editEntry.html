@@ -13,26 +13,20 @@ P00: User's Personal Blog Page
      <title> EDITING PAGE </title>
    </head>
 
-   <nav>
-     
-     <a href="displayAll">All Users</a> |
-     <a href="logout">Log Out</a>
-   </nav>
-
    <body>
      <h1>
        Bord's Weblog Hosting Site
        <br>
-       Edit your blog here!
+       Edit your post here!
        <br>
      </h1>
 
      <br>
 
-     <form action="finishEditBlog" method="post">
-      Title: <input type="text" name="title" value="{{ blogTitle }}">
+     <form action="finishEditPost" method="post">
+      Title: <input type="text" name="title" value="{{ entryTitle }}">
       <br><br/>
-      <textarea input type="text" name="paragraph_text" cols="50" rows="10">{{blogDescription}}</textarea>
+      <textarea input type="text" name="paragraph_text" cols="50" rows="10">{{entryText}}</textarea>
       <br><br>
       Confirm the name of your old title to confirm your edits: <input type="text" name="oldTitle">
       <br><br/>

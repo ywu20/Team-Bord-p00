@@ -10,7 +10,7 @@ P00: Individual Blog Page
  <html>
 
    <head>
-     <title> {{blogTitle}} </title>
+     <title> Blog Title </title>
    </head>
 
    <nav>
@@ -20,31 +20,34 @@ P00: Individual Blog Page
    </nav>
 
    <body>
-    <h1>
-      Bord's Weblog Hosting Site
-    </h1>
-    {% if sessionU %}
-        <form action="/" method="POST">
+     <h1>
+       Bord's Weblog Hosting Site
+     </h1>
+
+
+        <form action="/userblogs" method="POST">
+            <input type="hidden" name="usersub" value="{{username}}">
             <button type="submit">Back to Blogs</button>
         </form>
-    {% else %}
-        <form action="/userblogs" method="POST">
-          <input type="hidden" name="usersub" value="{{username}}">
-            <button type="submit">Back to {{username}}'s Blogs</button>
-  </form>
-    {% endif %}
         <h1>
            {{blogTitle}}
         </h1>
         <h2>
             Author: {{username}}
-
         </h2>
     </body>
 
     <p>
         Description: {{blogDescription}}
     </p>
+
+    {% if sessionU %}
+      <form action="/editBlog" method="post">
+        <input type="hidden" name="blogTitle" value="{{blogTitle}}">
+        <button type="submit" name="sub2">Edit Blog</button>
+      </form>
+      <br>
+    {% endif %}
 
     {% if sessionU %}
       <form action="/createEntry" method="post">
