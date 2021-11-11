@@ -121,6 +121,10 @@ def finishPost():
     # print(request.form['sub1'])
     return render_template('userblog.html', heading = teamBord, username = userU, listBlog = userdb.findBlogs(session['user']))
 
+@app.route("/displayAll", methods=['GET', 'POST'])
+def displayAll():
+    return render_template('allBlogs.html', listBlog = userdb.findAllBlogs())
+
 @app.route("/finishEditPost", methods=['GET', 'POST'])
 def finishEditPost():
     '''

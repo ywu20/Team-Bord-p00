@@ -81,6 +81,21 @@ def editBlog(UName, title, newTitle, text):
     c = db.cursor()
     c.execute("UPDATE blogs SET blogText = " + "'" + text + "'" + "WHERE username = " + "'" + UName + "'" + " AND blogTitle = " + "'" + title + "'")
     c.execute("UPDATE blogs SET blogTitle = " + "'" + newTitle + "'" + "WHERE username = " + "'" + UName + "'" + " AND blogTitle = " + "'" + title + "'")
-
     db.commit()
     db.close()
+
+def findAllBlogs():
+        db = sqlite3.connect(DB_FILE)
+        c = db.cursor()
+        c.execute("SELECT blogTitle FROM blogs")
+        titles=c.fetchall()
+        c.execute("SELECT blogText FROM blogs")
+        text=c.fetchall()
+        dictionary={}
+        i = 0
+        while (i < len(titles)):
+            dictionary[titles[i][0]]=text[i][0]
+            i += 1
+        return dictionary
+        db.commit()
+        db.close()
