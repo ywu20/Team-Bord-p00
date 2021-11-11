@@ -157,3 +157,7 @@ roshaniS -- 2021-11-10 18:35
 - changed the button tag in userblog.html to an input tag and added a value attribute with the blog title
 - added to the blogPage function in __init__.py, which takes the user to a blog page after they click a button on their personal blog page 
 - modified indivBlog.html to add the variables needed for render_template in the blogPage function of __init__.py 
+
+austinN -- 2021-11-11 11:47
+- editBlog in userdb.py edits the title now (might not in later version)
+- added different templates for creating and editing posts
