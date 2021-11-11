@@ -14,7 +14,13 @@ P00: Individual Blog Page
    </head>
 
    <body>
-        <form action="/" method="POST">
+     <h1>
+       Bord's Weblog Hosting Site
+     </h1>
+
+
+        <form action="/userblogs" method="POST">
+            <input type="hidden" name="usersub" value="{{username}}">
             <button type="submit">Back to Blogs</button>
         </form>
         <h1>
