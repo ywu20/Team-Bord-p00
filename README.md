@@ -28,23 +28,23 @@ If your machine uses Windows, replace `bin` with `Scripts`
 
 Clone the Repository:
 
-`$ git clone https://github.com/thomasyu21/Team-Bord-p00.git`
+`(venv) $ git clone https://github.com/thomasyu21/Team-Bord-p00.git`
 
 
 Change Directory and Install Requirements
 
 With a virtual environment launched, run the commands:
 
-`$ cd Team-Bord-p00`
+`(venv) $ cd Team-Bord-p00`
 
-`$ pip3 install -r requirements.txt`
+`(venv) $ pip3 install -r requirements.txt`
 
 
 Change Directory and Run Python Script:
 
-`$ cd app`
+`(venv) $ cd app`
 
-`$ python3 __init__.py`
+`(venv) $ python3 __init__.py`
 
 
 Open webpage at http://127.0.0.1:5000/
