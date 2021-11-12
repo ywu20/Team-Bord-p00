@@ -179,7 +179,7 @@ def finishEditBlog():
     text = request.form['paragraph_text']
     entries = userdb.findEntries(session['user'], oldTitle)
     blogs = userdb.findBlogs(session['user'])
-    if title in blogs:
+    if title in blogs and title != oldTitle:
         return render_template('editBlog.html', error = "Title Already Exists", newBlogTitle = title, blogTitle = oldTitle, blogDescription = text, username = session['user'])
     else:
         userdb.editBlog(userU, oldTitle, title, text)
@@ -208,10 +208,11 @@ def finishEditEntry():
     blogTitle = request.form['blogTitle']
     blogs = userdb.findBlogs(userU)
     entries = userdb.findEntries(userU, blogTitle)
-    if title in entries:
+    if title in entries and title != oldTitle:
         return render_template('editEntry.html', error = "Title Already Exists", newEntryTitle = title, entryTitle = oldTitle, entryText = text, blogTitle = blogTitle, username = session['user'])
     else:
         userdb.editEntry(userU, blogTitle, oldTitle, title, text)
+        entries = userdb.findEntries(userU, blogTitle)
         return render_template('indivBlog.html', blogTitle = blogTitle, sessionU = True, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
 
 @app.route("/createEntry", methods=['GET', 'POST'])
