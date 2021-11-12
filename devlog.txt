@@ -59,8 +59,8 @@ roshaniS -- 2021-11-01 19:03
 - Added the register button and the functions associated with it (did not include the username/password checks using the database yet; only used hardcoded
   username/password, but will change soon)
 - Fixed the logout function so that it redirects the user to the root and not just renders the login.html template
-- There is still an error with the site after the user registers successfully; since the user is still on the /auth route, the user can only keep registering on the
-  login page that is rendered after registering the first time. The user cannot login normally.
+- There is still an error with the site after the user registers successfully; since the user is still on the /auth route, the user can only keep registering on
+  the login page that is rendered after registering the first time. The user cannot login normally.
 
 roshaniS -- 2021-11-01 19:07
 - Fixed the errors that were present in loginpage.py ("UnboundLocalError: local variable 'tempUser' referenced before assignment")
@@ -128,42 +128,42 @@ austinN -- 2021-11-07 14:09
 
 austinN -- 2021-11-08 09:22
 - finishPost now displays the user's username in userblog.html after the new post has been created
-- created findBlogs function in userdb.py, which takes the titles and text of the blogs corresponding to a username
+- Created findBlogs function in userdb.py, which takes the titles and text of the blogs corresponding to a username
 
 roshaniS -- 2021-11-08 09:24
-- removed the message parameter when rendering login.html in the disp_loginpage function so that the login page doesn't display "None"
-- added conditions (with appropriate error messages) in the register_auth function for if the user inputs no username and/or password on the register page
-- added button on the register page (along with the appropriate function) for the user to go back to the login page
+- Removed the message parameter when rendering login.html in the disp_loginpage function so that the login page doesn't display "None"
+- Added conditions (with appropriate error messages) in the register_auth function for if the user inputs no username and/or password on the register page
+- Added button on the register page (along with the appropriate function) for the user to go back to the login page
 
 roshaniS -- 2021-11-08 20:21
-- removed commented out hardcoded username and password, as they aren't necessary anymore
-- removed diagnostic print statements, were there for testing only
-- added and changed some comments for readability; allows us to understand the code later on
+- Removed commented out hardcoded username and password, as they aren't necessary anymore
+- Removed diagnostic print statements, were there for testing only
+- Added and changed some comments for readability; allows us to understand the code later on
 
 roshaniS -- 2021-11-08 23:31
-- changed one comment
-- moved code from loginpage.py to __init__.py
-- deleted loginpage.py
+- Changed one comment
+- Moved code from loginpage.py to __init__.py
+- Deleted loginpage.py
 
 roshaniS -- 2021-11-09 21:00
-- fixed form tag on editBlog.html
-- fixed functionality of the findBlogs function in userdb.py
-- the buttons displayed on the user's personal blog page now display the blog titles correctly (without the parentheses and quotes)
+- Fixed form tag on editBlog.html
+- Fixed functionality of the findBlogs function in userdb.py
+- The buttons displayed on the user's personal blog page now display the blog titles correctly (without the parentheses and quotes)
 
 austinN -- 2021-11-10 09:12
-- finished editBlog function in userdb.py, which takes three parameters (username, title, and text) and replaces the text of the row in the database that has the corresponding username and title
+- Finished editBlog function in userdb.py, which takes three parameters (username, title, and text) and replaces the text of the row in the database that has the corresponding username and title
 
 roshaniS -- 2021-11-10 18:35
-- changed the button tag in userblog.html to an input tag and added a value attribute with the blog title
-- added to the blogPage function in __init__.py, which takes the user to a blog page after they click a button on their personal blog page
-- modified indivBlog.html to add the variables needed for render_template in the blogPage function of __init__.py
+- Changed the button tag in userblog.html to an input tag and added a value attribute with the blog title
+- Added to the blogPage function in __init__.py, which takes the user to a blog page after they click a button on their personal blog page
+- Modified indivBlog.html to add the variables needed for render_template in the blogPage function of __init__.py
 
 austinN -- 2021-11-11 11:47
 - editBlog in userdb.py edits the title now (might not in later version)
-- added different templates for creating and editing posts
+- Added different templates for creating and editing posts
 
 austinN -- 2021-11-11 12:55
-- finished implementation of editBlog
+- Finished implementation of editBlog
 
 thomasY -- 2021-11-11 15:43
 - Created entries for each blog
@@ -176,24 +176,24 @@ thomasY -- 2021-11-11 16:44
 - Fixed redirects when the user finishes editing or creating a entry to now go to the individual blog page.
 
 roshaniS -- 2021-11-11 17:12
-- fixed buttons on the page that displays all blogs
-- now it successfully redirects to other users' blog pages without allowing the user logged in to create a post on those pages
-- however, it doesn't display the other users' blogs if that's not the user that's logged in
+- Fixed buttons on the page that displays all blogs
+- Now it successfully redirects to other users' blog pages without allowing the user logged in to create a post on those pages
+- However, it doesn't display the other users' blogs if that's not the user that's logged in
 
 thomasY -- 2021-11-11 17:23
 - Updated templates so that some buttons only show up if the user in session matches the same user who created the blog/entry.
 
 roshaniS -- 2021-11-11 18:07
-- fixed button on the other users' blog pages (the ones being viewed)
-- the button now redirects back to the blogs of the user being viewed, not of the one logged in
+- Fixed button on the other users' blog pages (the ones being viewed)
+- The button now redirects back to the blogs of the user being viewed, not of the one logged in
 
 roshaniS -- 2021-11-11 18:39
-- added a button on the page that displays all users to return to the blogs of the user who is logged in
-- also added this button on the page that displays another user's blogs
-- reorganized buttons
+- Added a button on the page that displays all users to return to the blogs of the user who is logged in
+- Also added this button on the page that displays another user's blogs
+- Reorganized buttons
 
 austinN -- 2021-11-11 19:07
-- fully implemented nav bar
+- Fully implemented nav bar
 
 thomasY -- 2021-11-11 19:15
 - Fixed viewing the blogs of others
@@ -201,3 +201,7 @@ thomasY -- 2021-11-11 19:15
 - Fixed Cancel buttons
 - Added editing for blogs
 - userblog now displays descriptions under their respective buttons
+
+roshaniS -- 2021-11-11 19:41
+- Added project name to README 
+- Changed description of project on README
