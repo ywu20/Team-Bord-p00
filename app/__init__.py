@@ -88,6 +88,10 @@ def backtologin():
 
 @app.route("/personal", methods=['GET', 'POST'])
 def personal():
+    '''
+    Sends the user to the home page. 
+    Used in the navbar.
+    '''
     UName=session['user']
     return render_template('userblog.html', sessionU = True, username = UName, listBlog = userdb.findBlogs(UName))
 
@@ -99,9 +103,11 @@ def logOut():
     session.pop('user', None) # removes the session
     return render_template('login.html', message = 'You have successfully logged out.') # takes the user back to the login page
 
-# temporary
 @app.route("/blogpage", methods=['GET', 'POST'])
 def blogPage():
+    '''
+    Displays the user's blogs. 
+    '''
     user = request.form['username']
     blogs = userdb.findBlogs(user)
     title = request.form['blogsub']
@@ -125,15 +131,23 @@ def finishPost():
     text = request.form['paragraph_text']
     userU=session['user']
     userdb.addBlog(userU, title, text)
-    # print(request.form['sub1'])
     return render_template('userblog.html', sessionU = True, username = userU, listBlog = userdb.findBlogs(session['user']))
 
 @app.route("/displayAll", methods=['GET', 'POST'])
 def displayAll():
+    '''
+    Displays all the users.
+    The user can click on the buttons to see their blogs. 
+    '''
     return render_template('allBlogs.html', users = userdb.findAllUsers())
 
 @app.route("/userblogs", methods=['GET', 'POST'])
 def otherUserPage():
+    ''' 
+    Displays a user's page from the list of all users.
+    If it is the same user as the one logged in, then certain buttons will be displayed.
+    If it is not the same user, then those buttons will not be displayed.
+    '''
     user = request.form['usersub']
     blogs = userdb.findBlogs(user)
     if (user == session['user']):
@@ -143,6 +157,9 @@ def otherUserPage():
 
 @app.route("/editBlog", methods=['GET', 'POST'])
 def editBlog():
+    '''
+    Takes the user to a page to edit their blog.
+    '''
     blogTitle = request.form['blogTitle']
     blogs = userdb.findBlogs(session['user'])
     return render_template('editBlog.html', blogTitle = blogTitle, blogDescription = blogs[blogTitle], username = session['user'])
@@ -164,6 +181,9 @@ def finishEditBlog():
 
 @app.route("/editEntry", methods=['GET', 'POST'])
 def editPost():
+    '''
+    Takes the user to a page to edit an entry.
+    '''
     blogTitle = request.form['blogTitle']
     title = request.form['entrysub']
     entry = userdb.findEntries(session['user'], blogTitle)[title]
@@ -186,11 +206,17 @@ def finishEditPost():
 
 @app.route("/createEntry", methods=['GET', 'POST'])
 def createEntry():
+    '''
+    Takes the user to a page to create an entry.
+    '''
     title = request.form['blogTitle']
     return render_template('createEntry.html', username = session['user'], blogTitle = title)
 
 @app.route("/finishEntry", methods=['GET', 'POST'])
 def finishEntry():
+    '''
+    Takes the user to the page with their blogs once they are done making an entry.
+    '''
     blogTitle = request.form['blogTitle']
     title = request.form['title']
     text = request.form['paragraph_text']

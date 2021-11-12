@@ -13,6 +13,7 @@ P00: Individual Blog Page
      <title> Blog Title </title>
    </head>
 
+   <!-- navbar -->
    <nav>
      <a href="personal">Home</a> |
      <a href="displayAll">All Users</a> |
@@ -57,6 +58,7 @@ P00: Individual Blog Page
       <br>
     {% endif %}
 
+    <!-- Displays all the entries in this blog. Buttons are present to edit them. -->
     {% for key, value in entriesList.items() %}
       {% if sessionU %}
           <form action="editEntry" method="post">

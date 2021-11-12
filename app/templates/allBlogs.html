@@ -29,6 +29,7 @@ P00: User's Personal Blog Page
      <br>
      <br>
 
+  <!-- Displays all the users in the form of buttons. -->
   {% for name in users %}
     <form action="/userblogs" method="post">
       <input type="submit" name="usersub" value="{{name}}">

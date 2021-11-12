@@ -30,6 +30,9 @@ db.commit()
 db.close()
 
 def addUser(username, password):
+    '''
+    Adds user to the table logins.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("INSERT INTO logins VALUES(?, ?)", (username, password))
@@ -38,6 +41,9 @@ def addUser(username, password):
 
 
 def addBlog(username, title, text):
+    '''
+    Adds blog to the table blogs.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("INSERT INTO blogs VALUES(?, ?, ?)", (username, title, text))
@@ -45,6 +51,10 @@ def addBlog(username, title, text):
     db.close()
 
 def makeLoginsDict():
+    '''
+    Makes a dictionary for all the login information and fills it up.
+    Sets username as the key and the password as the value.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("SELECT * FROM logins")
@@ -60,14 +70,24 @@ def makeLoginsDict():
     db.close()
 
 def checkUser(username):
+    '''
+    Checks if the username is in the dictionary of login information as a key.
+    '''
     loginsinfo = makeLoginsDict()
     return username in loginsinfo.keys()
 
 def checkUserPass(username, password):
+    '''
+    Checks if the username and its password is in the dictionary of login information.
+    '''
     loginsinfo = makeLoginsDict()
     return (username in loginsinfo.keys()) and (loginsinfo[username] == password)
 
 def findBlogs(username):
+    '''
+    Makes a dictionary for all the blogs of the given username and fills it up.
+    Sets blog title as the key and blog text as the value.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("SELECT blogTitle FROM blogs WHERE username = " + "'" + username + "'")
@@ -84,6 +104,9 @@ def findBlogs(username):
     db.close()
 
 def editBlog(UName, title, newTitle, text):
+    '''
+    Edits the blogs table using the arguments provided.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("UPDATE blogs SET blogText = " + "'" + text + "'" + "WHERE username = " + "'" + UName + "'" + " AND blogTitle = " + "'" + title + "'")
@@ -91,23 +114,10 @@ def editBlog(UName, title, newTitle, text):
     db.commit()
     db.close()
 
-def findAllBlogs():
-        db = sqlite3.connect(DB_FILE)
-        c = db.cursor()
-        c.execute("SELECT blogTitle FROM blogs")
-        titles=c.fetchall()
-        c.execute("SELECT blogText FROM blogs")
-        text=c.fetchall()
-        dictionary={}
-        i = 0
-        while (i < len(titles)):
-            dictionary[titles[i][0]]=text[i][0]
-            i += 1
-        return dictionary
-        db.commit()
-        db.close()
-
 def addEntry(username, blogTitle, entryTitle, entryText):
+    '''
+    Adds an entry into entries table.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("INSERT INTO entries(user, blogTitle, entryTitle, entryText) VALUES(?, ?, ?, ?)", (username, blogTitle, entryTitle, entryText))
@@ -115,6 +125,10 @@ def addEntry(username, blogTitle, entryTitle, entryText):
     db.close()
 
 def findEntries(username, blogTitle):
+    '''
+    Makes a dictionary for all the entries associated with the given username and blog title, and fills it up.
+    Sets entry title as the key and entry text as the value.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("SELECT entryTitle FROM entries WHERE user = "+"'"+username+"'"+"AND blogTitle = "+"'"+blogTitle+"'"+"ORDER BY id DESC")
@@ -131,6 +145,9 @@ def findEntries(username, blogTitle):
     db.close()
 
 def editEntry(UName, blog, title, newTitle, text):
+    '''
+    Edits the entries table with the arguments provided.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("UPDATE entries SET entryText = " + "'" + text + "'" + "WHERE user = " + "'" + UName + "'" + "AND blogTitle = " + "'"+blog+"'" + " AND entryTitle = " + "'" + title + "'")
@@ -139,20 +156,27 @@ def editEntry(UName, blog, title, newTitle, text):
     db.close()
 
 def findAllUsers():
-        db = sqlite3.connect(DB_FILE)
-        c = db.cursor()
-        c.execute("SELECT username FROM logins")
-        users=c.fetchall()
-        dictionary={}
-        i = 0
-        while (i < len(users)):
-            dictionary[users[i][0]]=users[i][0]
-            i += 1
-        return dictionary
-        db.commit()
-        db.close()
+    '''
+    Makes a dictionary for all the users and fills it up.
+    Sets username as the key and username as the value.
+    '''
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT username FROM logins")
+    users=c.fetchall()
+    dictionary={}
+    i = 0
+    while (i < len(users)):
+        dictionary[users[i][0]]=users[i][0]
+        i += 1
+    return dictionary
+    db.commit()
+    db.close()
 
 def removeBlog(UName, title):
+    '''
+    Deletes the specified blog from the blogs table.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("DELETE FROM blogs " + "WHERE username = " + "'" + UName + "'" + "AND blogTitle = " + "'"+title+"'")
@@ -160,6 +184,9 @@ def removeBlog(UName, title):
     db.close()
 
 def removeEntry(UName, titleB, titleE):
+    ''' 
+    Deletes the specified blog entry from the entries table.
+    '''
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("DELETE FROM entries " + "WHERE user = " + "'" + UName + "'" + "AND blogTitle = " + "'"+titleB+"'"+"AND entryTitle = " + "'"+titleE+"'")
