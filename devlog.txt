@@ -205,3 +205,9 @@ thomasY -- 2021-11-11 19:15
 roshaniS -- 2021-11-11 19:41
 - Added project name to README 
 - Changed description of project on README
+
+roshaniS -- 2021-11-11 19:51
+- Fixed the user's ability to create blogs
+
+austinN -- 2021-11-11 20:01
+- added updated site map to design doc
