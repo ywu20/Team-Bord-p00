@@ -123,9 +123,8 @@ def finishPost():
     '''
     title = request.form['title']
     text = request.form['paragraph_text']
-    blogKey=os.urandom(32)
     userU=session['user']
-    userdb.addBlog(userU, blogKey, title, text)
+    userdb.addBlog(userU, title, text)
     # print(request.form['sub1'])
     return render_template('userblog.html', sessionU = True, username = userU, listBlog = userdb.findBlogs(session['user']))
 
