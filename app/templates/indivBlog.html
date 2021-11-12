@@ -59,7 +59,7 @@ P00: Individual Blog Page
 
     {% for key, value in entriesList.items() %}
       {% if sessionU %}
-          <form action="editPost" method="post">
+          <form action="editEntry" method="post">
             <input type="hidden" name="blogTitle" value="{{blogTitle}}">
             <input type="submit" name="entrysub" value="{{key}}">
           </form>
