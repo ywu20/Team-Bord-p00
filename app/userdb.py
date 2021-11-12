@@ -155,13 +155,13 @@ def findAllUsers():
 def removeBlog(UName, title):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("DELETE FROM blogs " + "WHERE user = " + "'" + UName + "'" + "AND blogTitle = " + "'"+title+"'")
+    c.execute("DELETE FROM blogs " + "WHERE username = " + "'" + UName + "'" + "AND blogTitle = " + "'"+title+"'")
     db.commit()
     db.close()
 
 def removeEntry(UName, titleB, titleE):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("DELETE FROM entries " + "WHERE user = " + "'" + UName + "'" + "AND blogTitle = " + "'"+title+"'"+"AND entryTitle = " + "'"+titleE+"'")
+    c.execute("DELETE FROM entries " + "WHERE user = " + "'" + UName + "'" + "AND blogTitle = " + "'"+titleB+"'"+"AND entryTitle = " + "'"+titleE+"'")
     db.commit()
     db.close()

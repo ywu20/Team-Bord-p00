@@ -200,6 +200,24 @@ def finishEntry():
     entries = userdb.findEntries(userU, blogTitle)
     return render_template('indivBlog.html', blogTitle = blogTitle, sessionU = True, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
 
+@app.route("/deleteEntry", methods=['GET', 'POST'])
+def deleteEntry():
+    userU=session['user']
+    blogTitle=request.form['ogBlogTitle']
+    entryTitle=request.form['ogTitle']
+    userdb.removeEntry(userU, blogTitle, entryTitle)
+    blogs = userdb.findBlogs(userU)
+    entries = userdb.findEntries(userU, blogTitle)
+    return render_template('indivBlog.html', blogTitle = blogTitle, sessionU = True, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
+
+@app.route("/deleteBlog", methods=['GET', 'POST'])
+def deleteBlog():
+    userU=session['user']
+    blogTitle=request.form['ogBlogTitle']
+    userdb.removeBlog(userU, blogTitle,)
+    blogs = userdb.findBlogs(userU)
+    entries = userdb.findEntries(userU, blogTitle)
+    return render_template('userblog.html', sessionU = True, username = userU, listBlog = userdb.findBlogs(session['user']))
 
 # ================================================================================ #
 
