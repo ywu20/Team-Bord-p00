@@ -218,3 +218,6 @@ roshaniS -- 2021-11-11 20:27
 
 roshaniS -- 2021-11-11 20:32
 - added spaces between blogs on the page listing the user's blogs as buttons
+
+austinN -- 2021-11-11 20:38
+- finished implementing the deletion of blogs and entries
