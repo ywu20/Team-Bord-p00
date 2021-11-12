@@ -23,15 +23,17 @@ P00: Add an Entry
       Bord's Weblog Hosting Site
       <br>
       Add a New Entry
-      <br>
     </h1>
+    <h2>
+      {{ error }}
+    </h2>
 
     <br>
 
     <form action="finishEntry" method="post">
-     Title: <input type="text" name="title">
+     Title: <input type="text" name="title" value="{{entryTitle}}">
      <br><br/>
-     <textarea input type="text" name="paragraph_text" cols="50" rows="10"></textarea>
+     <textarea input type="text" name="paragraph_text" cols="50" rows="10">{{entryText}}</textarea>
      <input type=hidden name="blogTitle" value="{{blogTitle}}">
      <br>
      <input type="submit" value="Finish Entry">
