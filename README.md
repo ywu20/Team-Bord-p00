@@ -1,4 +1,4 @@
-# Project 00 by Team Bord
+# Bord's Weblog Hosting Site by Team Bord
 
 ## Roster with Roles:
 Austin Ngan: Creation/editing blogs (Python and Database)
@@ -10,7 +10,9 @@ Roshani Shrestha: Login/Register Page (HTML templates and Flask sessions)
 Thomas Yu (Project Manager): Assisting with HTML templates and database work (user accounts and blogs)
 
 ## Description of Website/App:
-This website will allow the user to register with a username and password. Then, they can log into their personal blog page. On the personal blog page, the user will have the opportunity to create a new blog, view and edit their past entries, or view other users' blogs.
+Bord's Weblog Hosting Site allows the user to register with a username and password. Then, they can log into their personal blog page, where they will have the
+opportunity to create a new blog. They can also view and edit their blogs as well as create new entries. The user can edit their past entries. They also have the
+opportunity to view other users' blogs. 
 
 ## Launch Codes
 Launch Virtual Environment:
