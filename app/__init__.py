@@ -74,9 +74,9 @@ def authenticate():
             return render_template('userblog.html', sessionU = True, username = session['user'], listBlog = userdb.findBlogs(request.form['username']))
         else:
             if (not userdb.checkUser(tempUser)): # checks if the username is incorrect
-                error = "Error: Username does not exist."
+                error = "Error: Username or Password is incorrect."
             else: # the last case is that only the password is incorrect
-                error = "Error: Password is incorrect."
+                error = "Error: Username or Password is incorrect."
     return render_template( 'login.html', message = error)
 
 @app.route("/back_login", methods=['GET', 'POST'])
