@@ -10,20 +10,18 @@ Roshani Shrestha: Login/Register Page (HTML templates and Flask sessions)
 Thomas Yu (Project Manager): Assisting with HTML templates and database work (user accounts and blogs)
 
 ## Description of Website/App:
-Bord's Weblog Hosting Site allows the user to register with a username and password. Then, they can log into their personal blog page, where they will have the
-opportunity to create a new blog. They can also view and edit their blogs as well as create new entries. The user can edit their past entries. They also have the
-opportunity to view other users' blogs. 
+Bord's Weblog Hosting Site that allows the user to create their own blogs and view the blogs of others. To use Bord's Weblog Hosting Site you need an account, so make sure to register! Logging in takes a user to their personal blog page, where they can create a new blog or view and old one. Within each blog they can add, edit, and remove entries. They are also able to edit or remove the blog itself. Lastly, users are able view the blogs and blog entries of other users.
 
 ## Launch Codes
 Launch Virtual Environment:
 
 To create a virtual environment run the command:
 
-`$ python3 -m venv ~/blog`
+`$ python3 -m venv <path_to_virtual_environment>`
 
 Activate the Virtual Environment:
 
-`$ . ~/blog/bin/activate`
+`$ . <path_to_virtual_environment>/bin/activate`
 
 If your machine uses Windows, replace `bin` with `Scripts`
 
