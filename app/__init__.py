@@ -166,7 +166,7 @@ def editBlog():
     '''
     blogTitle = request.form['blogTitle']
     blogs = userdb.findBlogs(session['user'])
-    return render_template('editBlog.html', blogTitle = blogTitle, blogDescription = blogs[blogTitle], username = session['user'])
+    return render_template('editBlog.html', newBlogTitle = blogTitle, blogTitle = blogTitle, blogDescription = blogs[blogTitle], username = session['user'])
 
 @app.route("/finishEditBlog", methods=['GET', 'POST'])
 def finishEditBlog():
@@ -175,12 +175,15 @@ def finishEditBlog():
     '''
     userU=session['user']
     title = request.form['title']
-    oldTitle = request.form['oldTitle']
+    oldTitle = request.form['blogTitle']
     text = request.form['paragraph_text']
-    userdb.editBlog(userU, oldTitle, title, text)
-    entries = userdb.findEntries(session['user'], title)
+    entries = userdb.findEntries(session['user'], oldTitle)
     blogs = userdb.findBlogs(session['user'])
-    return render_template('indivBlog.html', blogTitle = title, sessionU = True, username = session['user'], blogDescription = blogs[title], entriesList = entries)
+    if title in blogs:
+        return render_template('editBlog.html', error = "Title Already Exists", newBlogTitle = title, blogTitle = oldTitle, blogDescription = text, username = session['user'])
+    else:
+        userdb.editBlog(userU, oldTitle, title, text)
+        return render_template('indivBlog.html', blogTitle = title, sessionU = True, username = session['user'], blogDescription = userdb.findBlogs(session['user'])[title], entriesList = entries)
 
 
 @app.route("/editEntry", methods=['GET', 'POST'])
@@ -191,7 +194,7 @@ def editPost():
     blogTitle = request.form['blogTitle']
     title = request.form['entrysub']
     entry = userdb.findEntries(session['user'], blogTitle)[title]
-    return render_template('editEntry.html', entryTitle = title, entryText = entry, blogTitle = blogTitle, username = session['user'])
+    return render_template('editEntry.html', newEntryTitle = title, entryTitle = title, entryText = entry, blogTitle = blogTitle, username = session['user'])
 
 @app.route("/finishEditEntry", methods=['GET', 'POST'])
 def finishEditEntry():
@@ -200,13 +203,16 @@ def finishEditEntry():
     '''
     userU=session['user']
     title = request.form['title']
-    oldTitle = request.form['oldTitle']
+    oldTitle = request.form['entryTitle']
     text = request.form['paragraph_text']
     blogTitle = request.form['blogTitle']
-    userdb.editEntry(userU, blogTitle, oldTitle, title, text)
     blogs = userdb.findBlogs(userU)
     entries = userdb.findEntries(userU, blogTitle)
-    return render_template('indivBlog.html', blogTitle = blogTitle, sessionU = True, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
+    if title in entries:
+        return render_template('editEntry.html', error = "Title Already Exists", newEntryTitle = title, entryTitle = oldTitle, entryText = text, blogTitle = blogTitle, username = session['user'])
+    else:
+        userdb.editEntry(userU, blogTitle, oldTitle, title, text)
+        return render_template('indivBlog.html', blogTitle = blogTitle, sessionU = True, username = session['user'], blogDescription = blogs[blogTitle], entriesList = entries)
 
 @app.route("/createEntry", methods=['GET', 'POST'])
 def createEntry():

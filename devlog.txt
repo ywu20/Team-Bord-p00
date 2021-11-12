@@ -227,3 +227,6 @@ thomasY -- 2021-11-11 20:42
 
 thomasY -- 2021-11-11 21:34
 - Now prevents the user from create a blog or entry with a title that already exists.
+
+thomasY -- 2021-11-11 22:29
+- Now prevents the user from editing a blog/entry title to one that already exists.

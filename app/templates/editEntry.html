@@ -26,12 +26,11 @@ P00: User's Personal Blog Page
      </h2>
 
      <form action="finishEditEntry" method="post">
-      Title: <input type="text" name="title" value="{{ entryTitle }}">
+      Title: <input type="text" name="title" value="{{ newEntryTitle }}">
       <br><br/>
       <textarea input type="text" name="paragraph_text" cols="50" rows="10">{{entryText}}</textarea>
       <br><br>
-      Confirm the name of your old title to confirm your edits: <input type="text" name="oldTitle">
-      <br><br/>
+      <input type=hidden name="entryTitle" value="{{entryTitle}}">
       <input type=hidden name="blogTitle" value="{{blogTitle}}">
       <input type="submit" value="Finish Editing">
      </form>

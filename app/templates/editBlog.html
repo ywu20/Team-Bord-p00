@@ -27,15 +27,15 @@ P00: User's Personal Blog Page
        <br>
      </h1>
 
-     <br>
+     <h2>
+       {{ error }}
+     </h2>
 
      <form action="finishEditBlog" method="post">
-      Title: <input type="text" name="title" value="{{ blogTitle }}">
+      Title: <input type="text" name="title" value="{{ newBlogTitle }}">
       <br><br/>
       <textarea input type="text" name="paragraph_text" cols="50" rows="10">{{blogDescription}}</textarea>
       <br><br>
-      Confirm the name of your old title to confirm your edits: <input type="text" name="oldTitle">
-      <br><br/>
       <input type=hidden name="blogTitle" value="{{blogTitle}}">
       <input type="submit" value="Finish Editing">
      </form>
