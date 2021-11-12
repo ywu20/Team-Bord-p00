@@ -38,9 +38,8 @@ P00: Individual Blog Page
         </h2>
     </body>
 
-    <p>
-        Description: {{blogDescription}}
-    </p>
+    <p>Description: </p>
+    <p style="white-space: pre-wrap;">{{ blogDescription }}</p>
 
     {% if sessionU %}
       <form action="/editBlog" method="post">
@@ -70,7 +69,7 @@ P00: Individual Blog Page
             {{key}}
           </h3>
       {% endif %}
-          <p>{{value}}</p>
+          <p style="white-space: pre-wrap;">{{ value }}</p>
     {% endfor %}
 
     <br>

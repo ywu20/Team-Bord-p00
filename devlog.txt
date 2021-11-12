@@ -203,7 +203,7 @@ thomasY -- 2021-11-11 19:15
 - userblog now displays descriptions under their respective buttons
 
 roshaniS -- 2021-11-11 19:41
-- Added project name to README 
+- Added project name to README
 - Changed description of project on README
 
 roshaniS -- 2021-11-11 19:51
@@ -221,3 +221,6 @@ roshaniS -- 2021-11-11 20:32
 
 austinN -- 2021-11-11 20:38
 - finished implementing the deletion of blogs and entries
+
+thomasY -- 2021-11-11 20:42
+- Updated html templates to preserve whitespace for blog descriptions and entry text.
