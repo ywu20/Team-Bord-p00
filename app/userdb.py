@@ -181,6 +181,7 @@ def removeBlog(UName, title):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     c.execute("DELETE FROM blogs " + "WHERE username = " + "'" + UName + "'" + "AND blogTitle = " + "'"+title+"'")
+    c.execute("DELETE FROM entries " + "WHERE user = " + "'" + UName + "'" + "AND blogTitle = " + "'"+title+"'")
     db.commit()
     db.close()
 
