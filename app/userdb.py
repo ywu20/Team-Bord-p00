@@ -152,3 +152,17 @@ def findAllUsers():
         return dictionary
         db.commit()
         db.close()
+
+def removeBlog(UName, title):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("DELETE FROM blogs " + "WHERE user = " + "'" + UName + "'" + "AND blogTitle = " + "'"+title+"'")
+    db.commit()
+    db.close()
+
+def removeEntry(UName, titleB, titleE):
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("DELETE FROM entries " + "WHERE user = " + "'" + UName + "'" + "AND blogTitle = " + "'"+title+"'"+"AND entryTitle = " + "'"+titleE+"'")
+    db.commit()
+    db.close()
