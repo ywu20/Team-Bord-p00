@@ -224,3 +224,6 @@ austinN -- 2021-11-11 20:38
 
 thomasY -- 2021-11-11 20:42
 - Updated html templates to preserve whitespace for blog descriptions and entry text.
+
+thomasY -- 2021-11-11 21:34
+- Now prevents the user from create a blog or entry with a title that already exists.
