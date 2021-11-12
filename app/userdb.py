@@ -160,18 +160,18 @@ def findAllUsers():
     Makes a dictionary for all the users and fills it up.
     Sets username as the key and username as the value.
     '''
-        db = sqlite3.connect(DB_FILE)
-        c = db.cursor()
-        c.execute("SELECT username FROM logins")
-        users=c.fetchall()
-        dictionary={}
-        i = 0
-        while (i < len(users)):
-            dictionary[users[i][0]]=users[i][0]
-            i += 1
-        return dictionary
-        db.commit()
-        db.close()
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("SELECT username FROM logins")
+    users=c.fetchall()
+    dictionary={}
+    i = 0
+    while (i < len(users)):
+        dictionary[users[i][0]]=users[i][0]
+        i += 1
+    return dictionary
+    db.commit()
+    db.close()
 
 def removeBlog(UName, title):
     '''
