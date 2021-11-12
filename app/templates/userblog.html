@@ -13,6 +13,7 @@ P00: User's Personal Blog Page
      <title> BLOG PAGE </title>
    </head>
 
+   <!-- navbar -->
    <nav>
      <a href="personal">Home</a> |
      <a href="displayAll">All Users</a> |
@@ -40,6 +41,7 @@ P00: User's Personal Blog Page
      <br>
      {% endif %}
 
+  <!-- Displays all the blogs in the form of buttons. -->
 	{% for key, value in listBlog.items() %}
         <form action="blogpage" method="post">
           <input type="hidden" name="username" value="{{username}}">
