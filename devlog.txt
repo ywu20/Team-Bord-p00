@@ -185,12 +185,19 @@ thomasY -- 2021-11-11 17:23
 
 roshaniS -- 2021-11-11 18:07
 - fixed button on the other users' blog pages (the ones being viewed)
-- the button now redirects back to the blogs of the user being viewed, not of the one logged in 
+- the button now redirects back to the blogs of the user being viewed, not of the one logged in
 
 roshaniS -- 2021-11-11 18:39
 - added a button on the page that displays all users to return to the blogs of the user who is logged in
-- also added this button on the page that displays another user's blogs 
-- reorganized buttons 
+- also added this button on the page that displays another user's blogs
+- reorganized buttons
 
 austinN -- 2021-11-11 19:07
 - fully implemented nav bar
+
+thomasY -- 2021-11-11 19:15
+- Fixed viewing the blogs of others
+- Changed the heading on all pages
+- Fixed Cancel buttons
+- Added editing for blogs
+- userblog now displays descriptions under their respective buttons
