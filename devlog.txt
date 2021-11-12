@@ -210,17 +210,17 @@ roshaniS -- 2021-11-11 19:51
 - Fixed the user's ability to create blogs
 
 austinN -- 2021-11-11 20:01
-- added updated site map to design doc
+- Added updated site map to design doc
 
 roshaniS -- 2021-11-11 20:27
-- added comments to files for readability
-- added static directory
+- Added comments to files for readability
+- Added static directory
 
 roshaniS -- 2021-11-11 20:32
-- added spaces between blogs on the page listing the user's blogs as buttons
+- Added spaces between blogs on the page listing the user's blogs as buttons
 
 austinN -- 2021-11-11 20:38
-- finished implementing the deletion of blogs and entries
+- Finished implementing the deletion of blogs and entries
 
 thomasY -- 2021-11-11 20:42
 - Updated html templates to preserve whitespace for blog descriptions and entry text.
@@ -230,3 +230,6 @@ thomasY -- 2021-11-11 21:34
 
 thomasY -- 2021-11-11 22:29
 - Now prevents the user from editing a blog/entry title to one that already exists.
+
+roshaniS -- 2021-11-11 23:04
+- Added code to delete entries when the blog is deleted so that if the user creates a blog with the same name as the deleted one, the entries don't come back
