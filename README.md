@@ -10,7 +10,7 @@ Roshani Shrestha: Login/Register Page (HTML templates and Flask sessions)
 Thomas Yu (Project Manager): Assisting with HTML templates and database work (user accounts and blogs)
 
 ## Description of Website/App:
-Bord's Weblog Hosting Site that allows the user to create their own blogs and view the blogs of others. To use Bord's Weblog Hosting Site you need an account, so make sure to register! Logging in takes a user to their personal blog page, where they can create a new blog or view and old one. Within each blog they can add, edit, and remove entries. They are also able to edit or remove the blog itself. Lastly, users are able view the blogs and blog entries of other users.
+Bord's Weblog Hosting Site allows the user to create their own blogs and view the blogs of others. To use Bord's Weblog Hosting Site, you need an account, so make sure to register! Logging in takes a user to their personal blog page, where they can create a new blog or view an old one. Within each blog they can add, edit, and remove entries. They are also able to edit or remove the blog itself. Lastly, users are able view the blogs and blog entries of other users.
 
 ## Launch Codes
 Launch Virtual Environment:
