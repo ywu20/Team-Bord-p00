@@ -233,3 +233,6 @@ thomasY -- 2021-11-11 22:29
 
 roshaniS -- 2021-11-11 23:04
 - Added code to delete entries when the blog is deleted so that if the user creates a blog with the same name as the deleted one, the entries don't come back
+
+thomasY -- 2021-11-11 23:11
+- Changed error messages when login info is incorrect.
