@@ -40,7 +40,7 @@ def addUser(username, password):
 def addBlog(username, title, text):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("INSERT INTO blogs VALUES(?, ?, ?, ?)", (username, title, text))
+    c.execute("INSERT INTO blogs VALUES(?, ?, ?)", (username, title, text))
     db.commit()
     db.close()
 
