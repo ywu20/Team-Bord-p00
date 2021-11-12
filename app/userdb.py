@@ -111,6 +111,7 @@ def editBlog(UName, title, newTitle, text):
     c = db.cursor()
     c.execute("UPDATE blogs SET blogText = " + "'" + text + "'" + "WHERE username = " + "'" + UName + "'" + " AND blogTitle = " + "'" + title + "'")
     c.execute("UPDATE blogs SET blogTitle = " + "'" + newTitle + "'" + "WHERE username = " + "'" + UName + "'" + " AND blogTitle = " + "'" + title + "'")
+    c.execute("UPDATE entries SET blogTitle = "+"'"+newTitle+"'"+"WHERE user = "+"'"+UName+"'"+"AND blogTitle = "+"'"+title+"'")
     db.commit()
     db.close()
 
@@ -184,7 +185,7 @@ def removeBlog(UName, title):
     db.close()
 
 def removeEntry(UName, titleB, titleE):
-    ''' 
+    '''
     Deletes the specified blog entry from the entries table.
     '''
     db = sqlite3.connect(DB_FILE)

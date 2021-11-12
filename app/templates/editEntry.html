@@ -21,9 +21,11 @@ P00: User's Personal Blog Page
        <br>
      </h1>
 
-     <br>
+     <h2>
+       {{ error }}
+     </h2>
 
-     <form action="finishEditPost" method="post">
+     <form action="finishEditEntry" method="post">
       Title: <input type="text" name="title" value="{{ entryTitle }}">
       <br><br/>
       <textarea input type="text" name="paragraph_text" cols="50" rows="10">{{entryText}}</textarea>
