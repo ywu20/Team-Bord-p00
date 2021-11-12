@@ -86,6 +86,11 @@ def backtologin():
     '''
     return render_template('login.html')
 
+@app.route("/personal", methods=['GET', 'POST'])
+def personal():
+    UName=session['user']
+    return render_template('userblog.html', sessionU = True, username = UName, listBlog = userdb.findBlogs(UName))
+
 @app.route("/logout", methods=['GET', 'POST'])
 def logOut():
     '''

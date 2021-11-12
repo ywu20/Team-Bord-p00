@@ -14,7 +14,7 @@ P00: User's Personal Blog Page
    </head>
 
    <nav>
-
+     <a href="personal">Home</a> |
      <a href="displayAll">All Users</a> |
      <a href="logout">Log Out</a>
    </nav>
@@ -49,11 +49,7 @@ P00: User's Personal Blog Page
      {% endfor %}
      <br>
 
-     {% if not sessionU %}
-     <form action="/" method="post">
-      <button type="submit" name="blogs">Back to your blogs</button>
-     </form>
-     {% endif %}
+
      <br>
 
      <br>
