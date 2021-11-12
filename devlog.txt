@@ -191,3 +191,6 @@ roshaniS -- 2021-11-11 18:39
 - added a button on the page that displays all users to return to the blogs of the user who is logged in
 - also added this button on the page that displays another user's blogs 
 - reorganized buttons 
+
+austinN -- 2021-11-11 19:07
+- fully implemented nav bar
