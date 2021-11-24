@@ -1,0 +1,31 @@
+body{
+  font-family: "Arial";
+  background-color:#384E77;
+  text-align:center;
+  color:white;
+}
+
+h1{
+  background-color:#8BBEB2;
+}
+
+h3{
+  background-color:#E6F9AF;
+  color: #384E77;
+}
+
+form{
+  padding:10px;
+  background-color:#8BBEB2;
+  position:relative;
+  left:350px;
+  width: 400px;
+  height:100px;
+}
+
+.clickable{
+  cursor:pointer;
+  transition:0.2s;
+  background-color:#384E77;
+  color:white;
+}
