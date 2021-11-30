@@ -11,6 +11,7 @@ P00: User's Personal Blog Page
 
    <head>
      <title> EDITING PAGE </title>
+     <link rel="stylesheet" href="../static/css/login.css">
    </head>
 
    <body>
@@ -32,7 +33,7 @@ P00: User's Personal Blog Page
       <br><br>
       <input type=hidden name="entryTitle" value="{{entryTitle}}">
       <input type=hidden name="blogTitle" value="{{blogTitle}}">
-      <input type="submit" value="Finish Editing">
+      <input type="submit" value="Finish Editing" class = "clickable">
      </form>
 
 
@@ -41,7 +42,7 @@ P00: User's Personal Blog Page
      <form action="blogpage" method="post">
        <input type="hidden" name="username" value="{{username}}">
        <input type="hidden" name="blogsub" value="{{blogTitle}}">
-      <button type="submit" name="sub1">Cancel</button>
+      <button type="submit" name="sub1" class = "clickable">Cancel</button>
      </form>
 
      <br><br>
@@ -50,7 +51,7 @@ P00: User's Personal Blog Page
       <input type="hidden" name="username" value="{{username}}">
       <input type="hidden" name="ogTitle" value="{{entryTitle}}">
       <input type="hidden" name="ogBlogTitle" value="{{blogTitle}}">
-      <button type="submit" name="sub1">Delete Entry</button>
+      <button type="submit" name="sub1" class = "clickable">Delete Entry</button>
      </form>
 
 

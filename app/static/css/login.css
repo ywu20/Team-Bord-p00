@@ -18,9 +18,10 @@ form{
   padding:10px;
   background-color:#8BBEB2;
   position:relative;
-  left:350px;
+
+  left:400px;
   width: 400px;
-  height:100px;
+
 }
 
 .clickable{
@@ -28,4 +29,33 @@ form{
   transition:0.2s;
   background-color:#384E77;
   color:white;
+}
+a{
+  color:white;
+  text-decoration: none;
+  background-color:black;
+}
+
+button{
+  cursor:pointer;
+  transition:0.2s;
+  background-color:#384E77;
+  color:white;
+}
+input{
+
+    cursor:pointer;
+    transition:0.2s;
+    background-color:#384E77;
+    color:orange;
+
+
+}
+
+textarea{
+  cursor:pointer;
+  transition:0.2s;
+  background-color:#384E77;
+  color:orange;
+  font-family: monospace;
 }

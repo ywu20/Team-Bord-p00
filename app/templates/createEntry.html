@@ -10,6 +10,7 @@ P00: Add an Entry
 
   <head>
     <title> EDITING PAGE </title>
+    <link rel="stylesheet" href="../static/css/login.css">
   </head>
 
   <nav>
@@ -36,7 +37,7 @@ P00: Add an Entry
      <textarea input type="text" name="paragraph_text" cols="50" rows="10">{{entryText}}</textarea>
      <input type=hidden name="blogTitle" value="{{blogTitle}}">
      <br>
-     <input type="submit" value="Finish Entry">
+     <input type="submit" value="Finish Entry" class = "clickable">
     </form>
 
     <br><br>
@@ -44,7 +45,7 @@ P00: Add an Entry
     <form action="blogpage" method="post">
       <input type="hidden" name="username" value="{{username}}">
       <input type="hidden" name="blogsub" value="{{blogTitle}}">
-      <button type="submit" name="sub1">Cancel Entry</button>
+      <button type="submit" name="sub1" class = "clickable">Cancel Entry</button>
     </form>
 
 

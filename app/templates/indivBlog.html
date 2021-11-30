@@ -11,6 +11,7 @@ P00: Individual Blog Page
 
    <head>
      <title> Blog Title </title>
+     <link rel="stylesheet" href="../static/css/login.css">
    </head>
 
    <!-- navbar -->
@@ -28,7 +29,7 @@ P00: Individual Blog Page
 
         <form action="/userblogs" method="POST">
             <input type="hidden" name="usersub" value="{{username}}">
-            <button type="submit">Back to Blogs</button>
+            <button type="submit" class = "clickable">Back to Blogs</button>
         </form>
         <h1>
            {{blogTitle}}

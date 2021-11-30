@@ -11,6 +11,7 @@ P00: User's Personal Blog Page
 
    <head>
      <title> EDITING PAGE </title>
+     <link rel="stylesheet" href="../static/css/login.css">
    </head>
 
    <nav>
@@ -37,7 +38,7 @@ P00: User's Personal Blog Page
       <textarea input type="text" name="paragraph_text" cols="50" rows="10">{{blogDescription}}</textarea>
       <br><br>
       <input type=hidden name="blogTitle" value="{{blogTitle}}">
-      <input type="submit" value="Finish Editing">
+      <input type="submit" value="Finish Editing" class = "clickable">
      </form>
 
      <br><br>
@@ -45,7 +46,7 @@ P00: User's Personal Blog Page
      <form action="blogpage" method="post">
        <input type="hidden" name="username" value="{{username}}">
        <input type="hidden" name="blogsub" value="{{blogTitle}}">
-      <button type="submit" name="sub1">Cancel</button>
+      <button type="submit" name="sub1" class = "clickable">Cancel</button>
      </form>
 
      <br><br>
@@ -53,7 +54,7 @@ P00: User's Personal Blog Page
      <form action="deleteBlog" method="post">
        <input type="hidden" name="username" value="{{username}}">
        <input type="hidden" name="ogBlogTitle" value="{{blogTitle}}">
-      <button type="submit" name="sub1">Delete Blog</button>
+      <button type="submit" name="sub1" class = "clickable">Delete Blog</button>
      </form>
 
      <br>
